@@ -48,7 +48,7 @@ body {
 @keyframes slideIn {
   from {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(45px);
   }
 
   to {
@@ -58,7 +58,7 @@ body {
 }
 
 .animate-slide-in {
-  animation: slideIn 0.8s ease-out forwards;
+  animation: slideIn 1.5s ease-out forwards;
 }
 
 @keyframes tech-orbit {
