@@ -3,6 +3,7 @@
 :root {
   --whiteCL: #ffffff;
   --bgCL: #ffffff;
+  --bg-surface: #f8fafc;
   --mainText: #0f172a;
   --secoundaryText: #64748b;
   --accent: #1d4ed8;
@@ -14,6 +15,7 @@
 
 .dark {
   --blackCL: #000000;
+  --bg-surface: #0b1120;
   --mainText: #f8fafc;
   --secondaryText: #94a3b8;
 
@@ -86,5 +88,39 @@ body {
 
   to {
     transform: rotate(-360deg);
+  }
+}
+
+@keyframes stackFloat {
+  0% {
+    transform: translateX(-30px);
+  }
+
+  50% {
+    transform: translateX(30px);
+  }
+
+  100% {
+    transform: translateX(-30px);
+  }
+}
+
+.animate-stack-float {
+  animation: stackFloat 5s ease-in-out infinite;
+}
+
+.animate-marquee {
+  animation: marquee 8s linear infinite;
+}
+.animate-marquee:has(.stack-icon:hover) {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
