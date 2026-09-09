@@ -297,9 +297,9 @@ const About = () => {
         </div>
       </div>
       {/* Tech stack marquee */}
-      <div className='border-y border-[var(--border)]  mt-12 lg:mt-20 py-6 px-12'>
+      <div className='border-y border-[var(--border)]  mt-12 lg:mt-20 py-6 relative'>
         {/* Left cover */}
-        <div className='absolute left-0 top-0 bottom-0 w-12 sm:w-20 bg-[var(--bg-surface)] z-10 pointer-events-none' />
+        <div className='absolute left-0 top-0 bottom-0 w-4 bg-[var(--bg-surface)]/85 z-10 pointer-events-none' />
         <div className='flex  items-center w-full gap-8 md:gap-16 animate-marquee px-12'>
           {stack.map((item) => (
             <span key={item.name}>
@@ -311,7 +311,7 @@ const About = () => {
           ))}
         </div>
         {/* Right cover */}
-        <div className='absolute right-0 top-0 bottom-0 w-12 sm:w-20 bg-[var(--bg-surface)] z-10 pointer-events-none' />
+        <div className='absolute right-0 top-0 bottom-0 w-4 bg-[var(--bg-surface)]/85  z-10 pointer-events-none' />
       </div>
     </section>
   );
