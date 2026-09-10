@@ -34,6 +34,12 @@ body {
   overflow-x: hidden;
   background-color: var(--bgCL);
 }
+html {
+  scroll-behavior: smooth;
+}
+section {
+  scroll-margin-top: 80px;
+}
 
 /* @media (min-width: 768px) {
   body {

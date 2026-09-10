@@ -1,16 +1,59 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+
+const navLinks = [
+  { href: '#projects', label: 'Projects' },
+  { href: '#about', label: 'About' },
+  { href: '#services', label: 'Services' },
+  { href: '#faq', label: 'FAQ' },
+  { href: '#contact', label: 'Contact' },
+];
 
 const navbar = () => {
   const [isDark, setIsDark] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
 
   const toggleTheme = () => {
     setIsDark(!isDark);
     document.documentElement.classList.toggle('dark');
   };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 5);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const sections = ['projects', 'about', 'services', 'faq', 'contact'];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveSection(entry.target.id);
+        });
+      },
+      { rootMargin: '-45% 0px -45% 0px', threshold: 0 },
+    );
+
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <>
-      <nav className='border-b-1 border-[var(--border)]  py-3 bg-[var(--navbar)]'>
+      <nav
+        className={`border-b-1 border-[var(--border)] w-full  py-3 bg-[var(--navbar)] ${
+          isScrolled ? 'fixed top-0 left-0 shadow-md' : 'relative'
+        } z-50`}
+      >
         <section className='flex justify-between items-center  px-6 sm:px-10 lg:px-12 xl:px-16'>
           <div className='flex gap-5 items-center justify-between'>
             <button
@@ -32,61 +75,21 @@ const navbar = () => {
             </h2>
           </div>
           <div className='hidden md:flex gap-3 lg:gap-6 items-center justify-between'>
-            <a
-              href='#projects'
-              className='relative font-medium text-lg text-[var(--mainText)]
+            {navLinks.map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                className={`relative font-medium text-lg text-[var(--mainText)]
   after:absolute after:left-0 after:-bottom-1
-  after:h-[2px] after:w-0
+  after:h-[2px]
   after:bg-[var(--accent)]
   after:transition-all after:duration-300
-  hover:after:w-full'
-            >
-              Projects
-            </a>
-            <a
-              href='#about'
-              className='relative font-medium text-lg text-[var(--mainText)]
-  after:absolute after:left-0 after:-bottom-1
-  after:h-[2px] after:w-0
-  after:bg-[var(--accent)]
-  after:transition-all after:duration-300
-  hover:after:w-full'
-            >
-              About
-            </a>
-            <a
-              href='#services'
-              className='relative font-medium text-lg text-[var(--mainText)]
-  after:absolute after:left-0 after:-bottom-1
-  after:h-[2px] after:w-0
-  after:bg-[var(--accent)]
-  after:transition-all after:duration-300
-  hover:after:w-full'
-            >
-              Services
-            </a>
-            <a
-              href='#faq'
-              className='relative font-medium text-lg text-[var(--mainText)]
-  after:absolute after:left-0 after:-bottom-1
-  after:h-[2px] after:w-0
-  after:bg-[var(--accent)]
-  after:transition-all after:duration-300
-  hover:after:w-full'
-            >
-              FAQ
-            </a>
-            <a
-              href='#contact'
-              className='relative font-medium text-lg text-[var(--mainText)]
-  after:absolute after:left-0 after:-bottom-1
-  after:h-[2px] after:w-0
-  after:bg-[var(--accent)]
-  after:transition-all after:duration-300
-  hover:after:w-full'
-            >
-              Contact
-            </a>
+  hover:after:w-full
+  ${activeSection === href.slice(1) ? 'after:w-full' : 'after:w-0'}`}
+              >
+                {label}
+              </a>
+            ))}
           </div>
           <div className='flex gap-1.5 lg:gap-3 items-center'>
             <button
@@ -146,6 +149,7 @@ const navbar = () => {
           </div>
         </section>
       </nav>
+      {isScrolled && <div style={{ height: '64px' }} />}
     </>
   );
 };

@@ -142,7 +142,7 @@ const About = () => {
   return (
     <section
       id='about'
-      className='bg-[var(--bg-surface)] py-16 sm:py-24 lg:py-28'
+      className='bg-[var(--bg-surface)] py-16 sm:py-24 lg:py-28 w-full'
     >
       <div className='max-w-[1120px] mx-auto px-6 sm:px-10 lg:px-8 '>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start'>
