@@ -30,21 +30,24 @@ const navbar = () => {
 
   useEffect(() => {
     const sections = ['projects', 'about', 'services', 'faq', 'contact'];
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) setActiveSection(entry.target.id);
-        });
-      },
-      { rootMargin: '-45% 0px -45% 0px', threshold: 0 },
-    );
 
-    sections.forEach((id) => {
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
+    const handleScroll = () => {
+      const scrollPos = window.scrollY + window.innerHeight * 0.45;
+      let current = '';
 
-    return () => observer.disconnect();
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollPos) {
+          current = id;
+        }
+      }
+
+      setActiveSection(current);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // run once on mount too, in case of a mid-page refresh
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
@@ -117,6 +120,7 @@ const navbar = () => {
           <div className='flex flex-col'>
             <a
               href='#projects'
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className=' font-medium text-bse text-[var(--mainText)] hover:text-[var(--blue-PRY)] py-1.5 transition-all duration-300 border-b-1 border-[var(--border)] sm:px-8 px-4
               '
             >
@@ -124,24 +128,28 @@ const navbar = () => {
             </a>
             <a
               href='#about'
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className='font-medium text-bse text-[var(--mainText)] hover:text-[var(--blue-PRY)] py-1.5 transition-all duration-300 border-b-1 border-[var(--border)] px-4 sm:px-8'
             >
               About
             </a>
             <a
               href='#services'
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className='font-medium text-bse text-[var(--mainText)] hover:text-[var(--blue-PRY)] py-1.5 transition-all duration-300 border-b-1 border-[var(--border)] px-4 sm:px-8'
             >
               Services
             </a>
             <a
               href='#faq'
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className='font-medium text-bse text-[var(--mainText)] hover:text-[var(--blue-PRY)] py-1.5 transition-all duration-300 border-b-1 border-[var(--border)] px-4 sm:px-8'
             >
               FAQ
             </a>
             <a
               href='#contact'
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
               className='font-medium text-bse text-[var(--mainText)] hover:text-[var(--blue-PRY)] py-1.5 transition-all duration-300 px-4 sm:px-8'
             >
               Contact
