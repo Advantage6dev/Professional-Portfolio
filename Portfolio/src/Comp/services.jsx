@@ -51,7 +51,7 @@ const Services = () => {
     <motion.section
       id='services'
       ref={servicesRef}
-      className={`w-full bg-[var(--background)] px-5 py-12 sm:px-8 md:px-12 lg:px-16 lg:py-16 ${isInView ? 'animate-slide-in' : 'opacity-0 translate-y-[20px] md:translate-y-[50px]'}`}
+      className={`w-full bg-[var(--background)] px-5 py-16 sm:py-24 lg:py-28 sm:px-8 md:px-12 lg:px-16 lg:py-16 ${isInView ? 'animate-slide-in' : 'opacity-0 translate-y-[20px] md:translate-y-[50px]'}`}
     >
       <div className='mx-auto max-w-6xl'>
         {/* Section Header */}

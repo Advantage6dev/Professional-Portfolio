@@ -140,8 +140,8 @@ const About = () => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
   return (
-    <section id='about' className='bg-[var(--bg-CL)] py-24 lg:py-28 w-full'>
-      <div className='max-w-[1120px] mx-auto px-6 sm:px-10 lg:px-8 '>
+    <section id='about' className='bg-[var(--bg-CL)] w-full'>
+      <div className='max-w-[1120px] mx-auto px-6 sm:px-10 lg:px-8 py-16 sm:py-24 lg:py-28'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start'>
           {/* Text side */}
           <motion.div
@@ -294,7 +294,7 @@ const About = () => {
         </div>
       </div>
       {/* Tech stack marquee */}
-      <div className='border-y border-[var(--border)]  mt-12 lg:mt-20 py-6 relative'>
+      <div className='border-y border-[var(--border)] py-6 relative'>
         {/* Left cover */}
         <div className='absolute left-0 top-0 bottom-0 w-4 bg-[var(--bg-surface)]/85 z-10 pointer-events-none' />
         <div className='flex  items-center w-full gap-8 md:gap-16 animate-marquee px-12'>
