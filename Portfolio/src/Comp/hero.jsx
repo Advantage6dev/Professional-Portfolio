@@ -4,7 +4,7 @@ import CircularTechStack from './floatingIcons.jsx';
 const Hero = () => {
   return (
     <>
-      <header className='h-[calc(100vh-67px)] max-h-[800px] relative bg-[var(--bgCL)] border-b border-[var(--border)] overflow-hidden flex items-center md:block animate-slide-in'>
+      <header className='h-[calc(100vh-67px)] max-h-[800px] relative bg-[var(--bgCL)] border-b border-[var(--border)] overflow-hidden flex items-center md:block animate-slide-in w-full'>
         <section className='px-4 md:px-12 md:pt-18 lg:px-32 lg:pt-22  relative z-20 mx-auto flex items-center'>
           <div className=''>
             <div className='flex flex-col gap-4 lg:max-w-200'>
@@ -19,7 +19,7 @@ const Hero = () => {
                 <span className='text-[var(--accent)]'>Web Experience</span>{' '}
                 That Drives Results
               </h1>
-              <p className='text-[var(--mainText)] text-base font-medium leading-tight max-w-160'>
+              <p className='text-[var(--secoundaryText)] text-base font-medium leading-tight max-w-160'>
                 I build modern, high-performing websites that help businesses
                 stand out, connect with their audience, and achieve their goals.
               </p>

@@ -38,7 +38,7 @@ html {
   scroll-behavior: smooth;
 }
 section {
-  scroll-margin-top: 180px;
+  scroll-margin-top: 160px;
 }
 
 @media (min-width: 768px) {
