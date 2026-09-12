@@ -20,33 +20,39 @@ const navbar = () => {
   };
 
   useEffect(() => {
+    // ALL sections on the page, top to bottom — including ones with no nav link
+    const allSections = [
+      'about',
+      'services',
+      'how-i-work',
+      'projects',
+      'build',
+      'faq',
+      'contact',
+    ];
+    // only these get a link in the navbar
+    const linkedSections = ['projects', 'about', 'services', 'faq', 'contact'];
+
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 5);
-    };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const sections = ['projects', 'about', 'services', 'faq', 'contact'];
-
-    const handleScroll = () => {
       const scrollPos = window.scrollY + window.innerHeight * 0.45;
-      let current = '';
+      const sorted = allSections
+        .map((id) => document.getElementById(id))
+        .filter(Boolean)
+        .sort((a, b) => a.offsetTop - b.offsetTop);
 
-      for (const id of sections) {
-        const el = document.getElementById(id);
-        if (el && el.offsetTop <= scrollPos) {
-          current = id;
-        }
+      let current = '';
+      for (const el of sorted) {
+        if (el.offsetTop <= scrollPos) current = el.id;
       }
 
-      setActiveSection(current);
+      // if the current section has no nav link, clear activeSection
+      setActiveSection(linkedSections.includes(current) ? current : '');
     };
 
     window.addEventListener('scroll', handleScroll);
-    handleScroll(); // run once on mount too, in case of a mid-page refresh
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
