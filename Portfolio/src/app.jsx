@@ -6,6 +6,7 @@ import Services from './Comp/services.jsx';
 import HowIWork from './Comp/howiwork.jsx';
 import Projects from './Comp/projects.jsx';
 import FromTheBuild from './Comp/fromthebuild.jsx';
+import FAQ from './Comp/faq.jsx';
 
 const app = () => {
   return (
@@ -17,6 +18,7 @@ const app = () => {
       <HowIWork />
       <Projects />
       <FromTheBuild />
+      <FAQ />
     </>
   );
 };
