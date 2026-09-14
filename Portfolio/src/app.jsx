@@ -7,10 +7,11 @@ import HowIWork from './Comp/howiwork.jsx';
 import Projects from './Comp/projects.jsx';
 import FromTheBuild from './Comp/fromthebuild.jsx';
 import FAQ from './Comp/faq.jsx';
-
+import BackToTop from './Comp/topbutton.jsx';
 const app = () => {
   return (
     <>
+      <BackToTop />
       <Navbar />
       <Hero />
       <About />
