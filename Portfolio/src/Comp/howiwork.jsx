@@ -73,7 +73,7 @@ const HowIWork = () => {
       className={`w-full bg-[var(--navbar)] px-6 sm:px-10 lg:px-8 py-16 sm:py-24 lg:py-28 `}
     >
       <div
-        className={`max-w-[1120px] mx-auto ${isInView ? 'animate-slide-in' : 'opacity-0'}`}
+        className={`max-w-[1200px] mx-auto ${isInView ? 'animate-slide-in' : 'opacity-0'}`}
       >
         <div className='flex items-center gap-2 mb-3.5'>
           <span className='w-1.5 h-1.5 rounded-full bg-[var(--blue-PRY)]'></span>

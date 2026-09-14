@@ -67,7 +67,7 @@ section {
 }
 
 .animate-slide-in {
-  animation: slideIn 2s ease-in forwards;
+  animation: slideIn 1.5s ease-in forwards;
 }
 
 @keyframes tech-orbit {

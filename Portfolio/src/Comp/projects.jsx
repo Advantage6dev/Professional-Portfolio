@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 const projects = [
   {
@@ -32,12 +33,21 @@ const projects = [
 ];
 
 const Projects = () => {
+  const servicesRef = useRef(null);
+
+  const isInView = useInView(servicesRef, {
+    once: true,
+    amount: 0.1,
+  });
   return (
     <section
       id='projects'
-      className='bg-[var(--bg-CL)] px-6 sm:px-10 lg:px-8 py-16 sm:py-24 lg:py-28'
+      ref={servicesRef}
+      className='w-full bg-[var(--bg-CL)] px-6 sm:px-10 lg:px-8 py-16 sm:py-24 lg:py-28'
     >
-      <div className='max-w-[1120px] mx-auto'>
+      <div
+        className={`max-w-[1200px] mx-auto ${isInView ? 'animate-slide-in' : 'opacity-0'}`}
+      >
         <div className='flex items-center gap-2 mb-3.5'>
           <span className='w-1.5 h-1.5 rounded-full bg-[var(--blue-PRY)]'></span>
           <span className='text-sm font-semibold text-[var(--blue-PRY)]'>
