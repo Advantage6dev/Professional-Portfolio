@@ -8,6 +8,8 @@ import Projects from './Comp/projects.jsx';
 import FromTheBuild from './Comp/fromthebuild.jsx';
 import FAQ from './Comp/faq.jsx';
 import BackToTop from './Comp/topbutton.jsx';
+import Contact from './Comp/contact.jsx';
+
 const app = () => {
   return (
     <>
@@ -20,6 +22,7 @@ const app = () => {
       <Projects />
       <FromTheBuild />
       <FAQ />
+      <Contact />
     </>
   );
 };
