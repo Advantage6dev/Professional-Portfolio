@@ -9,6 +9,7 @@ import FromTheBuild from './Comp/fromthebuild.jsx';
 import FAQ from './Comp/faq.jsx';
 import BackToTop from './Comp/topbutton.jsx';
 import Contact from './Comp/contact.jsx';
+import Footer from './Comp/footer.jsx';
 
 const app = () => {
   return (
@@ -23,6 +24,7 @@ const app = () => {
       <FromTheBuild />
       <FAQ />
       <Contact />
+      <Footer />
     </>
   );
 };
