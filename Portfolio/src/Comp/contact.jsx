@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 
 const Contact = () => {
   const [form, setForm] = useState({ name: '', email: '', message: '' });
@@ -19,21 +20,22 @@ const Contact = () => {
     setTimeout(() => setCopied(false), 1500);
   };
 
+  const servicesRef = useRef(null);
+
+  const isInView = useInView(servicesRef, {
+    once: true,
+    amount: 0.1,
+  });
+
   return (
     <section
       id='contact'
+      ref={servicesRef}
       className='relative overflow-hidden bg-[var(--navbar)] px-6 sm:px-10 lg:px-8 py-16 sm:py-24 lg:py-28'
     >
-      <div className='pointer-events-none absolute bottom-10 left-10 grid grid-cols-4 gap-2 opacity-40'>
-        {Array.from({ length: 16 }).map((_, i) => (
-          <span
-            key={i}
-            className='w-1.5 h-1.5 rounded-full bg-[var(--border)]'
-          />
-        ))}
-      </div>
-
-      <div className='relative max-w-[1200px] mx-auto'>
+      <div
+        className={`max-w-[1200px] relative mx-auto ${isInView ? 'animate-slide-in' : 'opacity-0'}`}
+      >
         {/* Header */}
         <div className='flex items-start gap-4'>
           <div>
