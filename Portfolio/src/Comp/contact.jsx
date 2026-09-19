@@ -31,7 +31,7 @@ const Contact = () => {
     <section
       id='contact'
       ref={servicesRef}
-      className='relative overflow-hidden bg-[var(--navbar)] px-6 sm:px-10 lg:px-8 py-16 sm:py-24 lg:py-28'
+      className='relative overflow-hidden bg-[var(--navbar)] px-6 sm:px-10 md:px-12 lg:px-32 py-16 sm:py-24 lg:py-28'
     >
       <div
         className={`max-w-[1200px] relative mx-auto ${isInView ? 'animate-slide-in' : 'opacity-0'}`}

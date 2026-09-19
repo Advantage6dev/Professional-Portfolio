@@ -44,7 +44,7 @@ const FAQ = () => {
     <section
       id='faq'
       ref={servicesRef}
-      className='w-full bg-[var(--bgCL)] px-5 sm:px-8 md:px-12 lg:px-16 py-16 sm:py-24 lg:py-28'
+      className='w-full bg-[var(--bgCL)] px-5 sm:px-8 md:px-12 lg:px-32 py-16 sm:py-24 lg:py-28'
     >
       <div
         className={`max-w-[1200px] mx-auto ${isInView ? 'animate-slide-in' : 'opacity-0'}`}

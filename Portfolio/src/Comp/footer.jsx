@@ -51,7 +51,7 @@ const Footer = () => {
             Advantage<span className='text-[var(--accent)]'>_dev</span>
           </h2>
 
-          <p className='font-medium text-lg lg:text-xl text-[#f8fafc] mt-2 max-w-70 sm:max-w-0'>
+          <p className='font-medium text-lg lg:text-xl text-[#f8fafc] mt-2 max-w-70 sm:max-w-full'>
             Creating{' '}
             <span className='text-[var(--accent)]'>Web Experience</span> That
             Drives Results.
