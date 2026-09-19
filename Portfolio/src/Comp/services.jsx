@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useLayoutEffect } from 'react';
 import { useInView, motion } from 'framer-motion';
 
 const services = [
@@ -41,19 +41,61 @@ const services = [
 
 const Services = () => {
   const servicesRef = useRef(null);
+  const buttonRef = useRef(null);
+  const [showAll, setShowAll] = useState(false);
+
+  const prevButtonTopRef = useRef(0);
+  const shouldAdjustScroll = useRef(false);
 
   const isInView = useInView(servicesRef, {
     once: true,
     amount: 0.1,
   });
 
+  const visibleCount = Math.ceil(services.length * 0.4);
+  const visibleServices = showAll ? services : services.slice(0, visibleCount);
+
+  const handleToggle = () => {
+    if (buttonRef.current) {
+      prevButtonTopRef.current = buttonRef.current.getBoundingClientRect().top;
+      shouldAdjustScroll.current = true;
+    }
+    setShowAll((prev) => !prev);
+  };
+
+  useLayoutEffect(() => {
+    if (shouldAdjustScroll.current && buttonRef.current) {
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          if (!buttonRef.current) return;
+          const newTop = buttonRef.current.getBoundingClientRect().top;
+          const delta = newTop - prevButtonTopRef.current;
+
+          // Clamp so the correction can never push scroll past the
+          // document's actual bounds (prevents the "lands at bottom" jump)
+          const maxScrollY =
+            document.documentElement.scrollHeight - window.innerHeight;
+          const targetY = Math.min(
+            Math.max(window.scrollY + delta, 0),
+            maxScrollY,
+          );
+
+          window.scrollTo({ top: targetY, left: 0, behavior: 'auto' });
+          shouldAdjustScroll.current = false;
+        });
+      });
+    }
+  }, [showAll]);
+
   return (
     <motion.section
       id='services'
       ref={servicesRef}
-      className={`w-full bg-[var(--background)] px-5 py-16 sm:py-24 lg:py-28 sm:px-8 md:px-12 lg:px-16 lg:py-16 ${isInView ? 'animate-slide-in' : 'opacity-0 translate-y-[20px] md:translate-y-[50px]'}`}
+      className={`w-full bg-[var(--background)] px-5 py-16 sm:py-24 lg:py-28 sm:px-8 md:px-12 lg:px-32 lg:py-16 `}
     >
-      <div className='mx-auto max-w-6xl'>
+      <div
+        className={`max-w-[1200px] mx-auto ${isInView ? 'animate-slide-in' : 'opacity-0'}`}
+      >
         {/* Section Header */}
         <div className='max-w-3xl'>
           <div className='flex items-center gap-2 mb-3.5'>
@@ -74,8 +116,11 @@ const Services = () => {
         </div>
 
         {/* Services */}
-        <div className='mt-14 border-t border-[var(--border)]'>
-          {services.map((service, index) => (
+        <div
+          className='mt-14 border-t border-[var(--border)]'
+          style={{ overflowAnchor: 'none' }}
+        >
+          {visibleServices.map((service) => (
             <div
               key={service.title}
               className={`
@@ -128,6 +173,24 @@ const Services = () => {
             </div>
           ))}
         </div>
+        {/* See more / See less button */}
+        {services.length > visibleCount && (
+          <div className='mt-10 flex justify-center'>
+            <button
+              ref={buttonRef}
+              onClick={handleToggle}
+              className='
+                rounded-full border border-[var(--border)]
+                px-6 py-2.5
+                text-sm font-semibold text-[var(--mainText)]
+                transition-colors duration-300
+                hover:bg-[var(--navbar)] cursor-pointer
+              '
+            >
+              {showAll ? 'See less' : 'See more'}
+            </button>
+          </div>
+        )}
       </div>
     </motion.section>
   );

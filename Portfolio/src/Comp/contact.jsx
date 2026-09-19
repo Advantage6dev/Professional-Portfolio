@@ -206,10 +206,12 @@ const Contact = () => {
                   </svg>
                 </div>
                 <div className='min-w-0'>
-                  <h3 className='font-semibold text-[#0f172a]'>WhatsApp</h3>
+                  <h3 className='font-semibold text-[#0f172a]'>
+                    Quickest way to reach me
+                  </h3>
                   <p className='text-[13.5px] text-[var(--secoundaryText)] mt-1 leading-relaxed'>
-                    Fastest way to reach me — tap to open a chat, I usually
-                    reply within a few hours.
+                    Send me a message on WhatsApp and I’ll get back to you as
+                    soon as I can.
                   </p>
                   <span className='mt-2 inline-flex items-center gap-1.5 text-sm font-medium text-emerald-600 dark:text-emerald-400'>
                     +234 9067890701

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
-const stack = [
+const stack_Icon = [
   {
     name: 'HTML5',
     icon: 'fa-brands fa-html5',
@@ -124,6 +124,36 @@ const stack = [
   },
 ];
 
+const stack_Text = [
+  {
+    name: 'HTML5',
+  },
+  {
+    name: 'CSS3',
+  },
+  {
+    name: 'JavaScript',
+  },
+  {
+    name: 'TypeScript',
+  },
+  {
+    name: 'React.js',
+  },
+  {
+    name: 'Tailwind CSS',
+  },
+  {
+    name: 'Framer',
+  },
+  {
+    name: 'Git',
+  },
+  {
+    name: 'GitHub',
+  },
+];
+
 const About = () => {
   const [isMobile, setIsMobile] = useState(() => {
     return window.innerWidth < 768;
@@ -141,7 +171,7 @@ const About = () => {
   }, []);
   return (
     <section id='about' className='bg-[var(--bg-CL)] w-full'>
-      <div className='max-w-[1120px] mx-auto px-6 sm:px-10 lg:px-8 py-16 sm:py-24 lg:py-28'>
+      <div className='max-w-[1120px] mx-auto px-6 sm:px-10 lg:px-8 py-16 sm:py-24'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start'>
           {/* Text side */}
           <motion.div
@@ -155,7 +185,7 @@ const About = () => {
               x: 0,
               y: 0,
             }}
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.3 }}
             transition={{
               duration: 0.8,
               ease: [0.22, 1, 0.36, 1],
@@ -186,14 +216,17 @@ const About = () => {
               </p>
 
               <div className='mt-4'>
-                <span className='text-[var(--mainText)] font-medium px-2.5 py-0.5 bg-[var(--navbar)] flex gap-0 w-fit border border-[var(--border)] rounded-lg'>
+                {/* <span className='text-[var(--mainText)] font-medium px-2.5 py-0.5 bg-[var(--navbar)] flex gap-0 w-fit border border-[var(--border)] rounded-lg'>
                   <button className='hover:-translate-x-2 cursor-pointer hover:bg-[var(--accent)] transition-all duration-300 px-3 py-2 rounded-lg hover:text-[var(--bgCL)]'>
                     View CV
                   </button>
                   <button className='hover:translate-x-2 cursor-pointer hover:bg-[var(--accent)] transition-all duration-300 px-3 py-2 rounded-lg hover:text-[var(--bgCL)]'>
                     Download CV
                   </button>
-                </span>
+                </span> */}
+                <button className='px-4 py-2 bg-[var(--blue-PRY)] text-white font-medium rounded-md hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-1 text-base'>
+                  View CV
+                </button>
               </div>
             </div>
 
@@ -210,27 +243,11 @@ const About = () => {
                 turn ideas into fast, functional, and polished websites.
               </p>
               <div className='mt-4 flex gap-2 items-center flex-wrap'>
-                <span className='px-3 py-1 border border-[var(--border)] text-[var(--mainText)] font-medium text-base rounded-lg'>
-                  HTML5
-                </span>
-                <span className='px-3 py-1 border border-[var(--border)] text-[var(--mainText)] font-medium text-base rounded-lg'>
-                  CSS3
-                </span>
-                <span className='px-3 py-1 border border-[var(--border)] text-[var(--mainText)] font-medium text-base rounded-lg'>
-                  JavaScript
-                </span>
-                <span className='px-3 py-1 border border-[var(--border)] text-[var(--mainText)] font-medium text-base rounded-lg'>
-                  React.js
-                </span>
-                <span className='px-3 py-1 border border-[var(--border)] text-[var(--mainText)] font-medium text-base rounded-lg'>
-                  Tailwind CSS
-                </span>
-                <span className='px-3 py-1 border border-[var(--border)] text-[var(--mainText)] font-medium text-base rounded-lg'>
-                  Framer
-                </span>
-                <span className='px-3 py-1 border border-[var(--border)] text-[var(--mainText)] font-medium text-base rounded-lg'>
-                  GIT
-                </span>
+                {stack_Text.map((item) => (
+                  <span className='px-3 py-1 border border-[var(--border)] text-[var(--mainText)] font-medium text-sm rounded-lg'>
+                    {item.name}
+                  </span>
+                ))}
               </div>
             </div>
 
@@ -239,7 +256,7 @@ const About = () => {
                 <h4 className='text-2xl sm:text-[28px] font-semibold text-[var(--mainText)]'>
                   5
                 </h4>
-                <span className='text-xs sm:text-[13px] text-[var(--secoundaryText)]'>
+                <span className='text-xs sm:text-[13px] text-[var(--secoundaryText)] medium'>
                   Projects shipped
                 </span>
               </div>
@@ -247,7 +264,7 @@ const About = () => {
                 <h4 className='text-2xl sm:text-[28px] font-semibold text-[var(--mainText)]'>
                   2 yrs
                 </h4>
-                <span className='text-xs sm:text-[13px] text-[var(--secoundaryText)]'>
+                <span className='text-xs sm:text-[13px] text-[var(--secoundaryText)] font-medium'>
                   Building for the web
                 </span>
               </div>
@@ -255,7 +272,7 @@ const About = () => {
                 <h4 className='text-2xl sm:text-[28px] font-semibold text-[var(--mainText)]'>
                   90
                 </h4>
-                <span className='text-xs sm:text-[13px] text-[var(--secoundaryText)]'>
+                <span className='text-xs sm:text-[13px] text-[var(--secoundaryText)] font-medium'>
                   Avg. Lighthouse score
                 </span>
               </div>
@@ -294,11 +311,11 @@ const About = () => {
         </div>
       </div>
       {/* Tech stack marquee */}
-      <div className='border-y border-[var(--border)] py-6 relative'>
+      <div className='border-y border-[var(--border)] py-6 relative w-full'>
         {/* Left cover */}
         <div className='absolute left-0 top-0 bottom-0 w-4 bg-[var(--bg-surface)]/85 z-10 pointer-events-none' />
         <div className='flex  items-center w-full gap-8 md:gap-16 animate-marquee px-12'>
-          {stack.map((item) => (
+          {stack_Icon.map((item) => (
             <span key={item.name}>
               <i
                 title={item.name}

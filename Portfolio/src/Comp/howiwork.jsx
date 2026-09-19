@@ -103,7 +103,7 @@ const HowIWork = () => {
               </span>
             </div>
 
-            <div className='flex flex-col md:flex-row gap-6 md:gap-12'>
+            <div className='flex flex-col md:flex-row gap-6 md:gap-14'>
               <div className='md:flex-1'>
                 <h3 className='text-base sm:text-lg font-semibold text-[#0f172a] mb-2'>
                   {step03.title}

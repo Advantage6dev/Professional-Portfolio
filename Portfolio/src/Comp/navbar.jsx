@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FiSun, FiMoon } from 'react-icons/fi';
 
 const navLinks = [
   { href: '#projects', label: 'Projects' },
@@ -76,10 +77,10 @@ const navbar = () => {
               />{' '}
               {/* Close icon */}{' '}
               <i
-                className={`fa-solid fa-xmark absolute text-xl text-[var(--blue-PRY)] transition-all duration-300 ease-in-out ${isMenuOpen ? 'rotate-0 opacity-100 scale-100' : '-rotate-90 opacity-0 scale-75'}`}
+                className={`fa-solid fa-xmark absolute text-2xl text-[var(--blue-PRY)] transition-all duration-300 ease-in-out ${isMenuOpen ? 'rotate-0 opacity-100 scale-100' : '-rotate-90 opacity-0 scale-75'}`}
               />{' '}
             </button>
-            <h2 className='font-semibold text-sm md:text-base bg-white border border-[var(--border)] py-1 lg:py-2 px-[14px] rounded-md cursor-text'>
+            <h2 className='font-semibold text-sm md:text-base bg-white border border-[var(--border)] py-1.5 lg:py-2 px-[14px] rounded-md cursor-text'>
               Advantage<span className='text-[var(--accent)]'>_dev</span>
             </h2>
           </div>
@@ -106,13 +107,21 @@ const navbar = () => {
               aria-label='Toggle dark mode'
               className='w-9 h-9 flex items-center justify-center rounded-full hover:bg-[var(--border)] transition-all duration-300 cursor-pointer'
             >
-              <i
+              {/* <i
                 className={`fa-regular ${isDark ? 'fa-sun' : 'fa-moon'} text-lg transition-all duration-300 text-[var(--blue-PRY)]`}
-              ></i>
+              ></i> */}
+              {isDark ? (
+                <FiMoon className='text-blue-400 text-2xl' />
+              ) : (
+                <FiSun className='text-yellow-500 text-2xl' />
+              )}
             </button>
-            <button className='bg-[var(--blue-PRY)] text-white font-medium py-1 px-3 hover:bg-[var(--accent)] rounded-lg cursor-pointer hover:-translate-y-0.5 transition-all duration-300 text-sm lg:text-base'>
+            <a
+              href='#contact'
+              className='bg-[var(--blue-PRY)] text-white font-medium py-1 px-3 hover:bg-[var(--accent)] rounded-lg cursor-pointer hover:-translate-y-0.5 transition-all duration-300 text-sm lg:text-base'
+            >
               Hire Me
-            </button>
+            </a>
           </div>
         </section>
 

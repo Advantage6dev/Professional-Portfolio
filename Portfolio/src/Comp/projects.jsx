@@ -3,32 +3,42 @@ import { motion, useInView } from 'framer-motion';
 
 const projects = [
   {
-    tag: '01 — E-COMMERCE',
-    title: 'Northfield Goods',
-    desc: 'A headless storefront rebuilt for speed — cut load time by 60% and lifted checkout conversion in the first month.',
-    stack: ['Next.js', 'Shopify', 'Tailwind'],
+    tag: '01 — Recipe App',
+    title: 'Forkify App',
+    desc: 'A JavaScript-powered recipe application featuring API-based recipe search, detailed recipe views, pagination, and saved recipes that persist between sessions.',
+    stack: ['HTML5', 'CSS3', 'JavaScript', 'Parcel'],
+    img: '/images/Forkify.png',
+    livelink: 'https://forkifyapp-millionrecipe.vercel.app/',
+    gitlink: 'https://github.com/Advantage6dev/Forkify-App',
     reverse: false,
+    status: 'completed',
   },
   {
-    tag: '02 — SAAS DASHBOARD',
-    title: 'Ledgerly',
-    desc: 'A finance dashboard redesigned around clarity — fewer clicks to the numbers that actually matter to the user.',
-    stack: ['React', 'TypeScript', 'Recharts'],
+    tag: '02 — Fitness Tracker',
+    title: 'Mapty App',
+    desc: 'A location-based workout tracker for logging running and cycling activities on an interactive map, with persistent workout data stored in the browser.',
+    stack: [
+      'Vanilla JavaScript (OOP/ES6 Classes)',
+      'Leaflet.js',
+      'Geolocation API',
+      'Local Storage',
+    ],
+    img: '/images/Mapty.png',
+    livelink: 'https://mapty-nu-steel.vercel.app/',
+    gitlink: 'https://github.com/Advantage6dev/Mapty',
     reverse: true,
+    status: 'completed',
   },
   {
-    tag: '03 — PORTFOLIO SITE',
-    title: 'Studio Marrow',
-    desc: 'A minimal, image-forward site for a small design studio — built to let the work do the talking.',
-    stack: ['Framer', 'CMS'],
+    tag: '03 — E-commerce',
+    title: 'Grandeur Treats and Beads',
+    desc: 'A responsive e-commerce website designed to showcase handmade beads and food products, featuring product browsing, clear product details, and direct WhatsApp ordering to make purchasing simple for customers.',
+    stack: ['Framer', 'HTML5', 'CSS3', 'JavaScript'],
+    img: '/images/Grandeur.png',
+    livelink: 'https://grandeurs.vercel.app/',
+    gitlink: 'https://github.com/Advantage6dev/Grandeur',
     reverse: false,
-  },
-  {
-    tag: '02 — SAAS DASHBOARD',
-    title: 'Ledgerly',
-    desc: 'A finance dashboard redesigned around clarity — fewer clicks to the numbers that actually matter to the user.',
-    stack: ['React', 'TypeScript', 'Recharts'],
-    reverse: true,
+    status: 'completed',
   },
 ];
 
@@ -69,18 +79,25 @@ const Projects = () => {
             >
               {/* image */}
               <div
-                className={`aspect-[16/11] rounded border border-[var(--border)] ${
+                className={`relative aspect-[16/11] rounded border border-[var(--border)] ${
                   p.reverse ? 'md:order-2' : 'md:order-1'
                 }`}
-                style={{
-                  background:
-                    'linear-gradient(120deg, var(--whiteCL), rgba(37,99,235,0.12))',
-                }}
-              />
+              >
+                <span
+                  className={`absolute top-3 left-3 text-xs font-semibold px-3 py-1 rounded-full border ${
+                    p.status === 'ongoing'
+                      ? 'bg-amber-100 text-amber-700 border-amber-200'
+                      : 'bg-emerald-100 text-emerald-700 border-emerald-200'
+                  }`}
+                >
+                  {p.status === 'ongoing' ? 'Ongoing Project' : 'Completed'}
+                </span>
+                <img src={p.img} alt='project-img' className='' />
+              </div>
 
               {/* text */}
               <div className={p.reverse ? 'md:order-1' : 'md:order-2'}>
-                <span className='font-mono text-xs text-[var(--blue-PRY)]'>
+                <span className='text-sm font-medium tracking-wide text-[var(--blue-PRY)]'>
                   {p.tag}
                 </span>
                 <h3 className='text-xl sm:text-2xl font-semibold text-[var(--mainText)] mt-2.5 mb-3'>
@@ -91,29 +108,35 @@ const Projects = () => {
                 </p>
                 <div className='flex flex-wrap gap-2 mb-5'>
                   {p.stack.map((s) => (
-                    <span
-                      key={s}
-                      className='text-xs text-[var(--secoundaryText)] border border-[var(--border)] px-2.5 py-1 rounded-full'
-                    >
+                    <span className='px-3 py-1 border border-[var(--border)] text-[var(--mainText)] font-medium text-sm rounded-lg'>
                       {s}
                     </span>
                   ))}
                 </div>
                 <div className='flex items-center gap-2 md:gap-4'>
                   <a
-                    href='#contact'
+                    href={p.gitlink}
                     className='px-2 py-1.5 bg-[var(--blue-PRY)] text-white font-medium rounded-md hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-1 text-base'
                   >
                     <i className='fa-brands fa-github text-2xl'></i>
                   </a>
-                  <a
-                    href='#projects'
-                    className='group inline-flex items-center gap-2 px-4 py-2 text-[var(--mainText)] font-bold rounded-md border border-[var(--border)] transition-all duration-300 hover:-translate-y-1 hover:bg-[var(--border)] bg-[var(--navbar)] text-base'
-                  >
-                    <span>View Live</span>
 
-                    <i className='fa-solid fa-arrow-up transition-transform duration-300 rotate-45 group-hover:rotate-90'></i>
-                  </a>
+                  {p.status === 'ongoing' ? (
+                    <span
+                      aria-disabled='true'
+                      className='inline-flex items-center gap-2 px-4 py-2 text-[var(--secoundaryText)] font-bold rounded-md border border-[var(--border)] bg-[var(--navbar)] text-base opacity-50 cursor-not-allowed'
+                    >
+                      <span>Coming Soon</span>
+                    </span>
+                  ) : (
+                    <a
+                      href={p.livelink}
+                      className='group inline-flex items-center gap-2 px-4 py-2 text-[var(--mainText)] font-bold rounded-md border border-[var(--border)] transition-all duration-300 hover:-translate-y-1 hover:bg-[var(--border)] bg-[var(--navbar)] text-base'
+                    >
+                      <span>Live Demo</span>
+                      <i className='fa-solid fa-arrow-up transition-transform duration-300 rotate-45 group-hover:rotate-90'></i>
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
