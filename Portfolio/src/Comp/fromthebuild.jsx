@@ -5,38 +5,46 @@ const posts = [
   {
     badge: 'Build Update',
     badgeColor: '#2563EB',
-    date: 'Sep 13, 2026',
-    title:
-      'Finally started rebuilding my portfolio after weeks of postponing it…',
-    excerpt:
-      'After weeks of putting it off, I finally started building my new portfolio this week. It feels good to be back…',
+    date: 'July 29, 2026',
+    title: 'Developer bug-fixing skills are on another level.',
+    excerpt: `Developer bug-fixing skills are on another level. 
+
+I spent several minutes trying to fix a bug and couldn't figure it out.…`,
+    link: 'https://lnkd.in/p/eKNzEink',
+    img: '/images/bugfixing.jpg',
   },
   {
     badge: 'Tech Tip',
     badgeColor: '#2563EB',
-    date: 'Sep 10, 2026',
+    date: 'Aug 19, 2026',
     title:
       'Why 100dvh can be a better choice than 100vh for modern responsive layouts',
-    excerpt:
-      "I've been testing a lot of viewport behaviour lately, and 100dvh has made a huge difference, especially…",
+    excerpt: `Small CSS tip that can fix annoying mobile layout issues 
+
+100vh vs 100dvh…`,
+    link: 'https://x.com/Advantage__dev/status/2089971672711299480',
+    img: '/images/csstip.jpg',
   },
   {
     badge: 'Design & Dev',
     badgeColor: '#2563EB',
-    date: 'Sep 7, 2026',
-    title:
-      'Why I design in Framer before coding (instead of the other way around)',
-    excerpt:
-      'I used to code first, then keep changing the design. Now I design in Framer first, and it saves me…',
+    date: 'Aug 3, 2026',
+    title: 'Why did you decide to learn Framer as a Front-end Developer?',
+    excerpt: `One question I get sometimes is, "Why did you decide to learn Framer as a Front-end Developer?"
+    For me…`,
+    link: 'https://lnkd.in/p/eXzJSCeR',
+    img: '/images/design&dev.jpg',
   },
   {
-    badge: 'Progress',
+    badge: 'Tech Tip',
     badgeColor: '#2563EB',
-    date: 'Sep 2, 2026',
-    title:
-      'Working on a big React project and learning real-world dependencies',
-    excerpt:
-      'This week has been all about setting up the project structure, handling dependencies, routing…',
+    date: 'Aug 2026',
+    title: 'One project can teach you more than 20 tutorials. ',
+    excerpt: `One project can teach you more than 20 tutorials. 
+
+I learned this pretty early in my development journey…`,
+    link: 'https://www.linkedin.com/posts/advantagedev_one-project-can-teach-you-more-than-20-tutorials-activity-7496456267196973056-kKnk?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEhoAIIBK9wmhhsjv2VFd50viho49P4mdcE',
+    img: '/images/aproject.jpg',
   },
 ];
 
@@ -132,7 +140,7 @@ const FromTheBuild = () => {
         </div>
 
         {/* Cards */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6'>
+        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6'>
           {posts.map((post) => (
             <div
               key={post.title}
@@ -140,7 +148,7 @@ const FromTheBuild = () => {
             >
               {/* image placeholder with badge */}
               <div
-                className='relative aspect-[4/3]'
+                className='relative h-60 overflow-hidden'
                 style={{
                   background: 'linear-gradient(135deg, #1e3a8a, #0f172a)',
                 }}
@@ -151,6 +159,12 @@ const FromTheBuild = () => {
                 >
                   {post.badge}
                 </span>
+                <img
+                  src={post.img}
+                  alt={post.title || 'post image'}
+                  className='w-full h-full object-cover object-top'
+                  loading='lazy'
+                />
               </div>
 
               <div className='p-5 flex flex-col flex-1'>
@@ -178,7 +192,8 @@ const FromTheBuild = () => {
                 </p>
 
                 <a
-                  href='#'
+                  href={post.link}
+                  target='_blank'
                   className='inline-flex items-center gap-1.5 text-sm font-semibold text-[#3B82F6] hover:text-[#60A5FA] transition-colors'
                 >
                   Read post
