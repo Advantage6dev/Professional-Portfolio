@@ -7,7 +7,7 @@ const BackToTop = () => {
     const handleScroll = () => {
       const pageHeight =
         document.documentElement.scrollHeight - window.innerHeight;
-      setIsVisible(window.scrollY > pageHeight * 0.5);
+      setIsVisible(window.scrollY > pageHeight * 0.3);
     };
 
     window.addEventListener('scroll', handleScroll);

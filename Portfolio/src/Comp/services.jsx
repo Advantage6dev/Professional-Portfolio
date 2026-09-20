@@ -1,5 +1,5 @@
-import React, { useRef, useState, useLayoutEffect } from 'react';
-import { useInView, motion } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { useInView, motion, AnimatePresence } from 'framer-motion';
 
 const services = [
   {
@@ -39,13 +39,57 @@ const services = [
   },
 ];
 
+const ServiceRow = ({ service }) => (
+  <div
+    className='
+      group grid gap-6 border-b border-[var(--border)]
+      px-2 py-6
+      transition-colors duration-300
+      sm:py-9
+      md:grid-cols-[1fr_1.7fr_auto]
+      md:items-center
+      md:gap-10
+      md:px-4
+      lg:py-8
+      hover:bg-[var(--navbar)]
+      cursor-text
+    '
+  >
+    <h3 className='text-lg font-semibold text-[var(--mainText)] sm:text-xl'>
+      {service.title}
+    </h3>
+
+    <p className='max-w-2xl text-sm leading-6 text-[var(--secoundaryText)] sm:text-base sm:leading-7'>
+      {service.description}
+    </p>
+
+    <span
+      className='
+        hidden text-2xl text-[var(--accent)]
+        transition-transform duration-300
+        group-hover:translate-x-2
+        md:block
+      '
+    >
+      →
+    </span>
+
+    <span
+      className='
+        block w-fit text-xl text-[var(--accent)]
+        transition-transform duration-300
+        group-hover:translate-x-2
+        md:hidden
+      '
+    >
+      →
+    </span>
+  </div>
+);
+
 const Services = () => {
   const servicesRef = useRef(null);
-  const buttonRef = useRef(null);
   const [showAll, setShowAll] = useState(false);
-
-  const prevButtonTopRef = useRef(0);
-  const shouldAdjustScroll = useRef(false);
 
   const isInView = useInView(servicesRef, {
     once: true,
@@ -53,39 +97,8 @@ const Services = () => {
   });
 
   const visibleCount = Math.ceil(services.length * 0.4);
-  const visibleServices = showAll ? services : services.slice(0, visibleCount);
-
-  const handleToggle = () => {
-    if (buttonRef.current) {
-      prevButtonTopRef.current = buttonRef.current.getBoundingClientRect().top;
-      shouldAdjustScroll.current = true;
-    }
-    setShowAll((prev) => !prev);
-  };
-
-  useLayoutEffect(() => {
-    if (shouldAdjustScroll.current && buttonRef.current) {
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          if (!buttonRef.current) return;
-          const newTop = buttonRef.current.getBoundingClientRect().top;
-          const delta = newTop - prevButtonTopRef.current;
-
-          // Clamp so the correction can never push scroll past the
-          // document's actual bounds (prevents the "lands at bottom" jump)
-          const maxScrollY =
-            document.documentElement.scrollHeight - window.innerHeight;
-          const targetY = Math.min(
-            Math.max(window.scrollY + delta, 0),
-            maxScrollY,
-          );
-
-          window.scrollTo({ top: targetY, left: 0, behavior: 'auto' });
-          shouldAdjustScroll.current = false;
-        });
-      });
-    }
-  }, [showAll]);
+  const alwaysVisible = services.slice(0, visibleCount);
+  const revealable = services.slice(visibleCount);
 
   return (
     <motion.section
@@ -106,7 +119,7 @@ const Services = () => {
           </div>
 
           <h2 className='text-4xl font-bold leading-tight tracking-tight text-[var(--mainText)] sm:text-5xl max-w-3xl'>
-            Need it built? Let’s make it happen.
+            Need it built? Let's make it happen.
           </h2>
 
           <p className='mt-5 max-w-2xl text-base leading-7 text-[var(--secoundaryText)] sm:text-lg'>
@@ -116,69 +129,33 @@ const Services = () => {
         </div>
 
         {/* Services */}
-        <div
-          className='mt-14 border-t border-[var(--border)]'
-          style={{ overflowAnchor: 'none' }}
-        >
-          {visibleServices.map((service) => (
-            <div
-              key={service.title}
-              className={`
-                group grid gap-6 border-b border-[var(--border)]
-                px-2 py-6
-                transition-colors duration-300
-                sm:py-9
-                md:grid-cols-[1fr_1.7fr_auto]
-                md:items-center
-                md:gap-10
-                md:px-4
-                lg:py-8
-                hover:bg-[var(--navbar)]
-                cursor-text
-              `}
-            >
-              {/* Service title */}
-              <h3 className='text-lg font-semibold text-[var(--mainText)] sm:text-xl'>
-                {service.title}
-              </h3>
-
-              {/* Description */}
-              <p className='max-w-2xl text-sm leading-6 text-[var(--secoundaryText)] sm:text-base sm:leading-7'>
-                {service.description}
-              </p>
-
-              {/* Arrow */}
-              <span
-                className='
-                  hidden text-2xl text-[var(--accent)]
-                  transition-transform duration-300
-                  group-hover:translate-x-2
-                  md:block
-                '
-              >
-                →
-              </span>
-
-              {/* Mobile arrow */}
-              <span
-                className='
-                  block w-fit text-xl text-[var(--accent)]
-                  transition-transform duration-300
-                  group-hover:translate-x-2
-                  md:hidden
-                '
-              >
-                →
-              </span>
-            </div>
+        <div className='mt-14 border-t border-[var(--border)]'>
+          {alwaysVisible.map((service) => (
+            <ServiceRow key={service.title} service={service} />
           ))}
+
+          <AnimatePresence initial={false}>
+            {showAll && (
+              <motion.div
+                key='revealed-services'
+                initial={{ height: 0, opacity: 0 }}
+                animate={{ height: 'auto', opacity: 1 }}
+                transition={{ duration: 0.6, ease: 'easeInOut' }}
+                style={{ overflow: 'hidden' }}
+              >
+                {revealable.map((service) => (
+                  <ServiceRow key={service.title} service={service} />
+                ))}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-        {/* See more / See less button */}
-        {services.length > visibleCount && (
+
+        {/* See more button — disappears permanently once clicked */}
+        {!showAll && services.length > visibleCount && (
           <div className='mt-10 flex justify-center'>
             <button
-              ref={buttonRef}
-              onClick={handleToggle}
+              onClick={() => setShowAll(true)}
               className='
                 rounded-full border border-[var(--border)]
                 px-6 py-2.5
@@ -187,7 +164,7 @@ const Services = () => {
                 hover:bg-[var(--navbar)] cursor-pointer
               '
             >
-              {showAll ? 'See less' : 'See more'}
+              See more
             </button>
           </div>
         )}

@@ -224,7 +224,7 @@ const About = () => {
                     Download CV
                   </button>
                 </span> */}
-                <button className='px-4 py-2 bg-[var(--blue-PRY)] text-white font-medium rounded-md hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-1 text-base'>
+                <button className='px-4 py-2 bg-[var(--blue-PRY)] text-white font-medium rounded-md hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-1 text-base cursor-pointer'>
                   View CV
                 </button>
               </div>
