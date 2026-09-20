@@ -70,7 +70,6 @@ const FromTheBuild = () => {
       <div
         className={`max-w-[1200px] mx-auto ${isInView ? 'animate-slide-in' : 'opacity-0'}`}
       >
-        {/* Header */}
         <div className='flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-12 sm:mb-16'>
           <div>
             <div className='flex items-center gap-2 mb-3.5'>
@@ -147,12 +146,7 @@ const FromTheBuild = () => {
               className='bg-white/[0.04] border border-white/10 rounded-xl overflow-hidden flex flex-col'
             >
               {/* image placeholder with badge */}
-              <div
-                className='relative h-60 overflow-hidden'
-                style={{
-                  background: 'linear-gradient(135deg, #1e3a8a, #0f172a)',
-                }}
-              >
+              <div className='relative h-60 overflow-hidden'>
                 <span
                   className='absolute top-3 left-3 text-white text-xs font-semibold px-3 py-1 rounded-full'
                   style={{ background: post.badgeColor }}
@@ -162,7 +156,7 @@ const FromTheBuild = () => {
                 <img
                   src={post.img}
                   alt={post.title || 'post image'}
-                  className='w-full h-full object-cover object-top'
+                  className='w-full h-full object-cover object-top '
                   loading='lazy'
                 />
               </div>
