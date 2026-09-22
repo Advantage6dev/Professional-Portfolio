@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { useInView } from 'framer-motion';
-import RevealOnScroll from './RevealOnScroll';
+import RevealOnScroll from './revealonscroll.jsx';
 
 const projects = [
   {
