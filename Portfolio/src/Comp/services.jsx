@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { useInView, motion, AnimatePresence } from 'framer-motion';
+import RevealOnScroll from './revealonscroll';
 
 const services = [
   {
@@ -131,7 +132,9 @@ const Services = () => {
         {/* Services */}
         <div className='mt-14 border-t border-[var(--border)]'>
           {alwaysVisible.map((service) => (
-            <ServiceRow key={service.title} service={service} />
+            <RevealOnScroll key={service.title}>
+              <ServiceRow service={service} />
+            </RevealOnScroll>
           ))}
 
           <AnimatePresence initial={false}>
@@ -144,7 +147,9 @@ const Services = () => {
                 style={{ overflow: 'hidden' }}
               >
                 {revealable.map((service) => (
-                  <ServiceRow key={service.title} service={service} />
+                  <RevealOnScroll key={service.title}>
+                    <ServiceRow service={service} />
+                  </RevealOnScroll>
                 ))}
               </motion.div>
             )}

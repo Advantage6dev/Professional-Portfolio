@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import RevealOnScroll from './revealonscroll.jsx';
 
 const steps = [
   {
@@ -88,42 +89,48 @@ const HowIWork = () => {
         </p>
 
         <div className='mt-10 grid grid-cols-1 sm:grid-cols-2 gap-5'>
-          {steps.map((s) => (
-            <StepCard key={s.num} {...s} />
+          {steps.map((s, i) => (
+            <RevealOnScroll key={s.num} delay={i * 0.08}>
+              <StepCard {...s} />
+            </RevealOnScroll>
           ))}
 
           {/* 3rd Card */}
-          <div className='sm:col-span-2 bg-[var(--whiteCL)] border border-[var(--border)] rounded-xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1.5'>
-            <div className='flex items-start justify-between mb-4'>
-              <span className='text-2xl sm:text-3xl font-bold text-[var(--blue-PRY)]'>
-                {step03.num}
-              </span>
-              <span className='text-[11px] sm:text-xs font-mono text-[var(--secoundaryText)] uppercase tracking-wide mt-1.5'>
-                {step03.tag}
-              </span>
-            </div>
-
-            <div className='flex flex-col md:flex-row gap-6 md:gap-14'>
-              <div className='md:flex-1'>
-                <h3 className='text-base sm:text-lg font-semibold text-[#0f172a] mb-2'>
-                  {step03.title}
-                </h3>
-                <p className='text-[13.5px] sm:text-sm text-[var(--secoundaryText)] leading-relaxed'>
-                  {step03.desc}
-                </p>
+          <RevealOnScroll delay={0.16} className='sm:col-span-2'>
+            <div className='bg-[var(--whiteCL)] border border-[var(--border)] rounded-xl p-6 sm:p-7 transition-all duration-300 hover:-translate-y-1.5'>
+              <div className='flex items-start justify-between mb-4'>
+                <span className='text-2xl sm:text-3xl font-bold text-[var(--blue-PRY)]'>
+                  {step03.num}
+                </span>
+                <span className='text-[11px] sm:text-xs font-mono text-[var(--secoundaryText)] uppercase tracking-wide mt-1.5'>
+                  {step03.tag}
+                </span>
               </div>
-              <div className='md:w-[280px] lg:w-[320px] h-50 flex-shrink-0 aspect-video rounded-lg border border-[var(--border)] bg-[var(--bgCL)] flex items-center justify-center overflow-hidden'>
-                <img
-                  src='/images/build.png'
-                  alt='build-img'
-                  className='w-full h-50 hover:scale-105 transition-all duration-300'
-                />
+
+              <div className='flex flex-col md:flex-row gap-6 md:gap-14'>
+                <div className='md:flex-1'>
+                  <h3 className='text-base sm:text-lg font-semibold text-[#0f172a] mb-2'>
+                    {step03.title}
+                  </h3>
+                  <p className='text-[13.5px] sm:text-sm text-[var(--secoundaryText)] leading-relaxed'>
+                    {step03.desc}
+                  </p>
+                </div>
+                <div className='md:w-[280px] lg:w-[320px] h-50 flex-shrink-0 aspect-video rounded-lg border border-[var(--border)] bg-[var(--bgCL)] flex items-center justify-center overflow-hidden'>
+                  <img
+                    src='/images/build.png'
+                    alt='build-img'
+                    className='w-full h-50 hover:scale-105 transition-all duration-300'
+                  />
+                </div>
               </div>
             </div>
-          </div>
+          </RevealOnScroll>
 
-          {stepsBottom.map((s) => (
-            <StepCard key={s.num} {...s} />
+          {stepsBottom.map((s, i) => (
+            <RevealOnScroll key={s.num} delay={i * 0.08}>
+              <StepCard {...s} />
+            </RevealOnScroll>
           ))}
         </div>
       </div>

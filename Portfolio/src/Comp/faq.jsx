@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import RevealOnScroll from './revealonscroll';
 
 const faqs = [
   {
@@ -64,46 +65,45 @@ const FAQ = () => {
           {faqs.map((item, i) => {
             const isOpen = openIndex === i;
             return (
-              <div
-                key={item.q}
-                className='border-b border-[var(--border)] px-4'
-              >
-                <button
-                  onClick={() => toggle(i)}
-                  className='w-full flex items-center justify-between gap-6 py-5 sm:py-4 text-left'
-                >
-                  <span className='text-[15px] sm:text-lg font-medium text-[var(--mainText)]'>
-                    {item.q}
-                  </span>
-                  <span className='grid place-items-center flex-shrink-0 w-5 h-5 text-xl text-[var(--blue-PRY)] cursor-pointer'>
-                    <i
-                      className={`fa-solid fa-angle-up col-start-1 row-start-1 transition-all duration-300 ease-in-out ${
-                        isOpen
-                          ? 'rotate-90 opacity-0 scale-75'
-                          : 'rotate-0 opacity-100 scale-100'
-                      }`}
-                    />
-                    <i
-                      className={`fa-solid fa-angle-down col-start-1 row-start-1 transition-all duration-300 ease-in-out ${
-                        isOpen
-                          ? 'rotate-0 opacity-100 scale-100'
-                          : '-rotate-90 opacity-0 scale-75'
-                      }`}
-                    />
-                  </span>
-                </button>
+              <RevealOnScroll key={item.q} delay={i * 0.05}>
+                <div className='border-b border-[var(--border)] px-4'>
+                  <button
+                    onClick={() => toggle(i)}
+                    className='w-full flex items-center justify-between gap-6 py-5 sm:py-4 text-left'
+                  >
+                    <span className='text-[15px] sm:text-lg font-medium text-[var(--mainText)]'>
+                      {item.q}
+                    </span>
+                    <span className='grid place-items-center flex-shrink-0 w-5 h-5 text-xl text-[var(--blue-PRY)] cursor-pointer'>
+                      <i
+                        className={`fa-solid fa-angle-up col-start-1 row-start-1 transition-all duration-300 ease-in-out ${
+                          isOpen
+                            ? 'rotate-90 opacity-0 scale-75'
+                            : 'rotate-0 opacity-100 scale-100'
+                        }`}
+                      />
+                      <i
+                        className={`fa-solid fa-angle-down col-start-1 row-start-1 transition-all duration-300 ease-in-out ${
+                          isOpen
+                            ? 'rotate-0 opacity-100 scale-100'
+                            : '-rotate-90 opacity-0 scale-75'
+                        }`}
+                      />
+                    </span>
+                  </button>
 
-                <div
-                  className='grid transition-all duration-300 ease-in-out'
-                  style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
-                >
-                  <div className='overflow-hidden'>
-                    <p className='text-[var(--secoundaryText)] text-[14px] sm:text-[15px] leading-relaxed pb-5 sm:pb-6 max-w-[620px]'>
-                      {item.a}
-                    </p>
+                  <div
+                    className='grid transition-all duration-300 ease-in-out'
+                    style={{ gridTemplateRows: isOpen ? '1fr' : '0fr' }}
+                  >
+                    <div className='overflow-hidden'>
+                      <p className='text-[var(--secoundaryText)] text-[14px] sm:text-[15px] leading-relaxed pb-5 sm:pb-6 max-w-[620px]'>
+                        {item.a}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
+              </RevealOnScroll>
             );
           })}
         </div>

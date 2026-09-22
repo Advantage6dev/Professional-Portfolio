@@ -1,17 +1,36 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useState, useEffect } from 'react';
+import RevealOnScroll from './revealonscroll';
+import { useInView } from 'framer-motion';
+
+const CountUp = ({ to, duration = 1.2, suffix = '' }) => {
+  const [value, setValue] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.5 });
+
+  useEffect(() => {
+    if (!isInView) return;
+    let start;
+    const step = (timestamp) => {
+      if (!start) start = timestamp;
+      const progress = Math.min((timestamp - start) / (duration * 1000), 1);
+      setValue(Math.floor(progress * to));
+      if (progress < 1) requestAnimationFrame(step);
+      else setValue(to); // snap to exact final number, avoids rounding short
+    };
+    requestAnimationFrame(step);
+  }, [isInView, to, duration]);
+
+  return (
+    <span ref={ref}>
+      {value}
+      {suffix}
+    </span>
+  );
+};
 
 const stack_Icon = [
-  {
-    name: 'HTML5',
-    icon: 'fa-brands fa-html5',
-    hover: 'hover:text-orange-500',
-  },
-  {
-    name: 'CSS3',
-    icon: 'fa-brands fa-css3-alt',
-    hover: 'hover:text-blue-500',
-  },
+  { name: 'HTML5', icon: 'fa-brands fa-html5', hover: 'hover:text-orange-500' },
+  { name: 'CSS3', icon: 'fa-brands fa-css3-alt', hover: 'hover:text-blue-500' },
   {
     name: 'JavaScript',
     icon: 'fa-brands fa-js',
@@ -27,11 +46,7 @@ const stack_Icon = [
     icon: 'fa-brands fa-node-js',
     hover: 'hover:text-green-500',
   },
-  {
-    name: 'Git',
-    icon: 'fa-brands fa-git-alt',
-    hover: 'hover:text-orange-600',
-  },
+  { name: 'Git', icon: 'fa-brands fa-git-alt', hover: 'hover:text-orange-600' },
   {
     name: 'GitHub',
     icon: 'fa-brands fa-github',
@@ -42,36 +57,20 @@ const stack_Icon = [
     icon: 'fa-solid fa-wind',
     hover: 'hover:text-cyan-400',
   },
-  {
-    name: 'Figma',
-    icon: 'fa-brands fa-figma',
-    hover: 'hover:text-purple-500',
-  },
+  { name: 'Figma', icon: 'fa-brands fa-figma', hover: 'hover:text-purple-500' },
   {
     name: 'Framer',
     icon: 'fa-solid fa-layer-group',
     hover: 'hover:text-purple-500',
   },
-  {
-    name: 'Vite',
-    icon: 'fa-solid fa-bolt',
-    hover: 'hover:text-yellow-400',
-  },
+  { name: 'Vite', icon: 'fa-solid fa-bolt', hover: 'hover:text-yellow-400' },
   {
     name: 'Express',
     icon: 'fa-solid fa-server',
     hover: 'hover:text-green-400',
   },
-  {
-    name: 'HTML5',
-    icon: 'fa-brands fa-html5',
-    hover: 'hover:text-orange-500',
-  },
-  {
-    name: 'CSS3',
-    icon: 'fa-brands fa-css3-alt',
-    hover: 'hover:text-blue-500',
-  },
+  { name: 'HTML5', icon: 'fa-brands fa-html5', hover: 'hover:text-orange-500' },
+  { name: 'CSS3', icon: 'fa-brands fa-css3-alt', hover: 'hover:text-blue-500' },
   {
     name: 'JavaScript',
     icon: 'fa-brands fa-js',
@@ -87,11 +86,7 @@ const stack_Icon = [
     icon: 'fa-brands fa-node-js',
     hover: 'hover:text-green-500',
   },
-  {
-    name: 'Git',
-    icon: 'fa-brands fa-git-alt',
-    hover: 'hover:text-orange-600',
-  },
+  { name: 'Git', icon: 'fa-brands fa-git-alt', hover: 'hover:text-orange-600' },
   {
     name: 'GitHub',
     icon: 'fa-brands fa-github',
@@ -102,21 +97,13 @@ const stack_Icon = [
     icon: 'fa-solid fa-wind',
     hover: 'hover:text-cyan-400',
   },
-  {
-    name: 'Figma',
-    icon: 'fa-brands fa-figma',
-    hover: 'hover:text-purple-500',
-  },
+  { name: 'Figma', icon: 'fa-brands fa-figma', hover: 'hover:text-purple-500' },
   {
     name: 'Framer',
     icon: 'fa-solid fa-layer-group',
     hover: 'hover:text-purple-500',
   },
-  {
-    name: 'Vite',
-    icon: 'fa-solid fa-bolt',
-    hover: 'hover:text-yellow-400',
-  },
+  { name: 'Vite', icon: 'fa-solid fa-bolt', hover: 'hover:text-yellow-400' },
   {
     name: 'Express',
     icon: 'fa-solid fa-server',
@@ -125,73 +112,24 @@ const stack_Icon = [
 ];
 
 const stack_Text = [
-  {
-    name: 'HTML5',
-  },
-  {
-    name: 'CSS3',
-  },
-  {
-    name: 'JavaScript',
-  },
-  {
-    name: 'TypeScript',
-  },
-  {
-    name: 'React.js',
-  },
-  {
-    name: 'Tailwind CSS',
-  },
-  {
-    name: 'Framer',
-  },
-  {
-    name: 'Git',
-  },
-  {
-    name: 'GitHub',
-  },
+  { name: 'HTML5' },
+  { name: 'CSS3' },
+  { name: 'JavaScript' },
+  { name: 'TypeScript' },
+  { name: 'React.js' },
+  { name: 'Tailwind CSS' },
+  { name: 'Framer' },
+  { name: 'Git' },
+  { name: 'GitHub' },
 ];
 
 const About = () => {
-  const [isMobile, setIsMobile] = useState(() => {
-    return window.innerWidth < 768;
-  });
-
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768);
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
   return (
     <section id='about' className='bg-[var(--bg-CL)] w-full'>
       <div className='max-w-[1120px] mx-auto px-6 sm:px-10 lg:px-8 py-16 sm:py-24'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start'>
           {/* Text side */}
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: isMobile ? 0 : -120,
-              y: isMobile ? 60 : 0,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              y: 0,
-            }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{
-              duration: 0.8,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className='order-2 md:order-2'
-          >
+          <RevealOnScroll delay={0.2} className='order-2 md:order-1'>
             <div className='flex items-center gap-2 mb-3.5'>
               <span className='w-1.5 h-1.5 rounded-full bg-[var(--blue-PRY)]'></span>
               <span className='text-sm font-semibold text-[var(--blue-PRY)]'>
@@ -216,15 +154,7 @@ const About = () => {
               </p>
 
               <div className='mt-4'>
-                {/* <span className='text-[var(--mainText)] font-medium px-2.5 py-0.5 bg-[var(--navbar)] flex gap-0 w-fit border border-[var(--border)] rounded-lg'>
-                  <button className='hover:-translate-x-2 cursor-pointer hover:bg-[var(--accent)] transition-all duration-300 px-3 py-2 rounded-lg hover:text-[var(--bgCL)]'>
-                    View CV
-                  </button>
-                  <button className='hover:translate-x-2 cursor-pointer hover:bg-[var(--accent)] transition-all duration-300 px-3 py-2 rounded-lg hover:text-[var(--bgCL)]'>
-                    Download CV
-                  </button>
-                </span> */}
-                <button className='px-4 py-2 bg-[var(--blue-PRY)] text-white font-medium rounded-md hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-1 text-base cursor-pointer'>
+                <button className='px-7 py-2 bg-[var(--blue-PRY)] text-white font-medium rounded-md hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-1 text-base cursor-pointer'>
                   View CV
                 </button>
               </div>
@@ -244,7 +174,10 @@ const About = () => {
               </p>
               <div className='mt-4 flex gap-2 items-center flex-wrap'>
                 {stack_Text.map((item) => (
-                  <span className='px-3 py-1 border border-[var(--border)] text-[var(--mainText)] font-medium text-sm rounded-lg'>
+                  <span
+                    key={item.name}
+                    className='px-3 py-1 border border-[var(--border)] text-[var(--mainText)] font-medium text-sm rounded-lg'
+                  >
                     {item.name}
                   </span>
                 ))}
@@ -254,15 +187,15 @@ const About = () => {
             <div className='flex gap-10 sm:gap-12 mt-4 pt-2'>
               <div>
                 <h4 className='text-2xl sm:text-[28px] font-semibold text-[var(--mainText)]'>
-                  5
+                  <CountUp to={5} />
                 </h4>
-                <span className='text-xs sm:text-[13px] text-[var(--secoundaryText)] medium'>
+                <span className='text-xs sm:text-[13px] text-[var(--secoundaryText)] font-medium'>
                   Projects shipped
                 </span>
               </div>
               <div>
                 <h4 className='text-2xl sm:text-[28px] font-semibold text-[var(--mainText)]'>
-                  2 yrs
+                  <CountUp to={2} suffix=' yrs' />
                 </h4>
                 <span className='text-xs sm:text-[13px] text-[var(--secoundaryText)] font-medium'>
                   Building for the web
@@ -270,53 +203,36 @@ const About = () => {
               </div>
               <div>
                 <h4 className='text-2xl sm:text-[28px] font-semibold text-[var(--mainText)]'>
-                  90
+                  <CountUp to={90} />
                 </h4>
                 <span className='text-xs sm:text-[13px] text-[var(--secoundaryText)] font-medium'>
                   Avg. Lighthouse score
                 </span>
               </div>
             </div>
-          </motion.div>
+          </RevealOnScroll>
 
-          {/* Photo side */}
-          <motion.div
-            initial={{
-              opacity: 0,
-              x: isMobile ? 0 : 120,
-              y: isMobile ? 60 : 0,
-            }}
-            whileInView={{
-              opacity: 1,
-              x: 0,
-              y: 0,
-            }}
-            viewport={{ once: true, amount: 0.2 }}
-            transition={{
-              duration: 0.8,
-              delay: isMobile ? 0 : 0.1,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className='order-1 md:order-2 rounded border border-[var(--border)] flex items-end overflow-hidden h-100 w-full'
+          {/* Photo side — sticky on large screens so it stays put while
+              the (taller) text column scrolls past it */}
+          <RevealOnScroll
+            delay={0.1}
+            className='order-1 md:order-2 lg:sticky lg:top-34 rounded border border-[var(--border)] flex items-end overflow-hidden h-100 w-full'
           >
             <img
               src='/images/about.jpg'
               alt='about-img'
               className='h-full hover:scale-105 transition-all duration-300 w-full'
             />
-            {/* <span className='text-[13px] font-mono text-[var(--secoundaryText)]'>
-              [ photo / portrait placeholder ]
-            </span> */}
-          </motion.div>
+          </RevealOnScroll>
         </div>
       </div>
+
       {/* Tech stack marquee */}
-      <div className='border-y border-[var(--border)] py-6 relative w-full'>
-        {/* Left cover */}
+      <div className='border-y border-[var(--border)] py-4 md:py-6 relative w-full overflow-hidden'>
         <div className='absolute left-0 top-0 bottom-0 w-4 bg-[var(--bg-surface)]/85 z-10 pointer-events-none' />
-        <div className='flex  items-center w-full gap-8 md:gap-16 animate-marquee px-12'>
-          {stack_Icon.map((item) => (
-            <span key={item.name}>
+        <div className='flex items-center w-full gap-8 md:gap-16 animate-marquee px-12'>
+          {stack_Icon.map((item, i) => (
+            <span key={`${item.name}-${i}`}>
               <i
                 title={item.name}
                 className={`${item.icon} ${item.hover} text-4xl md:text-5xl text-[var(--border)] transition-colors duration-300 cursor-text stack-icon`}
@@ -324,8 +240,7 @@ const About = () => {
             </span>
           ))}
         </div>
-        {/* Right cover */}
-        <div className='absolute right-0 top-0 bottom-0 w-4 bg-[var(--bg-surface)]/85  z-10 pointer-events-none' />
+        <div className='absolute right-0 top-0 bottom-0 w-4 bg-[var(--bg-surface)]/85 z-10 pointer-events-none' />
       </div>
     </section>
   );

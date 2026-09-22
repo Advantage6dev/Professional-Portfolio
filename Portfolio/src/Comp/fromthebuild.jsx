@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
+import RevealOnScroll from './revealonscroll';
 
 const posts = [
   {
@@ -140,9 +141,10 @@ const FromTheBuild = () => {
 
         {/* Cards */}
         <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6'>
-          {posts.map((post) => (
-            <div
+          {posts.map((post, i) => (
+            <RevealOnScroll
               key={post.title}
+              delay={i * 0.1}
               className='bg-white/[0.04] border border-white/10 rounded-xl overflow-hidden flex flex-col'
             >
               {/* image placeholder with badge */}
@@ -205,7 +207,7 @@ const FromTheBuild = () => {
                   </svg>
                 </a>
               </div>
-            </div>
+            </RevealOnScroll>
           ))}
         </div>
       </div>
