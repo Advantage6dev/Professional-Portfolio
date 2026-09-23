@@ -22,7 +22,10 @@ const ContactForm = () => {
     try {
       const res = await fetch(import.meta.env.VITE_FORMSPREE_LINK, {
         method: 'POST',
-        headers: { Accept: 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
         body: JSON.stringify(form),
       });
 
@@ -38,7 +41,7 @@ const ContactForm = () => {
   };
 
   const copyEmail = () => {
-    navigator.clipboard.writeText(import.meta.env.MAIL);
+    navigator.clipboard.writeText(import.meta.env.VITE_MAIL);
     setCopied(true);
     setTimeout(() => setCopied(false), 1500);
   };
@@ -166,12 +169,12 @@ const ContactForm = () => {
 
         {status === 'success' && (
           <p className='mt-3 text-sm text-green-500'>
-            Thanks! Your message has been sent — I'll get back to you soon.
+            Thanks! Your message has been sent.
           </p>
         )}
         {status === 'error' && (
           <p className='mt-3 text-sm text-red-500'>
-            Something went wrong. Please try again, or email me directly.
+            Something went wrong, Please try again.
           </p>
         )}
       </form>
