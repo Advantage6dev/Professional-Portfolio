@@ -29,6 +29,10 @@ const navigationLinks = [
 
 const socialLinks = [
   {
+    href: 'https://wa.me/2349067890701',
+    text: 'WhatsApp',
+  },
+  {
     href: 'https://x.com/Advantage__dev',
     text: 'X',
   },
@@ -45,13 +49,13 @@ const socialLinks = [
 const Footer = () => {
   return (
     <section className='w-full bg-[var(--random-cl)] relative overflow-hidden px-5 sm:px-8 md:px-12 lg:px-16  border-t border-[var(--border)]'>
-      <div className='flex flex-col sm:flex-row sm:justify-between sm:items-start gap-8 sm:gap-10 py-8 sm:py-10'>
+      <div className='flex flex-col sm:flex-row sm:justify-between sm:items-start gap-8 md:gap-10 py-8 sm:py-10'>
         <div className='w-full sm:max-w-100'>
           <h2 className='font-semibold text-sm md:text-base bg-white border border-[var(--border)] py-1 lg:py-2 px-[14px] rounded-md cursor-text w-fit'>
             Advantage<span className='text-[var(--accent)]'>_dev</span>
           </h2>
 
-          <p className='font-medium text-lg lg:text-xl text-[#f8fafc] mt-2 max-w-70 sm:max-w-full'>
+          <p className='font-medium text-lg lg:text-xl text-[#f8fafc] mt-2 max-w-70 md:max-w-full'>
             Creating{' '}
             <span className='text-[var(--accent)]'>Web Experience</span> That
             Drives Results.
@@ -60,7 +64,7 @@ const Footer = () => {
 
         {/* Link columns — grouped together, right edge */}
         <div className='flex gap-10 sm:gap-16'>
-          <div className=''>
+          <div className='min-w-[120px]'>
             <h2 className='text-[var(--blue-PRY)] text-lg font-medium'>
               Explore
             </h2>
@@ -102,8 +106,14 @@ const Footer = () => {
       <div className='border-t border-[var(--border)] py-4'>
         <div className='w-full text-center'>
           <p className='text-[var(--secoundaryText)] text-base'>
-            &copy; {new Date().getFullYear()} Advantage_dev. All rights
-            reserved.
+            &copy; {new Date().getFullYear()}{' '}
+            <a
+              href='https://x.com/Advantage__dev'
+              class='underline hover:text-white transition-colors duration-200'
+            >
+              Advantage__dev
+            </a>
+            . All rights reserved.
           </p>
         </div>
       </div>

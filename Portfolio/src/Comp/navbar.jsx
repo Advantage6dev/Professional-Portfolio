@@ -107,9 +107,6 @@ const navbar = () => {
               aria-label='Toggle dark mode'
               className='w-9 h-9 flex items-center justify-center rounded-full hover:bg-[var(--border)] transition-all duration-300 cursor-pointer'
             >
-              {/* <i
-                className={`fa-regular ${isDark ? 'fa-sun' : 'fa-moon'} text-lg transition-all duration-300 text-[var(--blue-PRY)]`}
-              ></i> */}
               {isDark ? (
                 <FiMoon className='text-blue-400 text-2xl' />
               ) : (
@@ -118,7 +115,7 @@ const navbar = () => {
             </button>
             <a
               href='#contact'
-              className='bg-[var(--blue-PRY)] text-white font-medium py-1 px-3 hover:bg-[var(--accent)] rounded-lg cursor-pointer hover:-translate-y-0.5 transition-all duration-300 text-sm lg:text-base'
+              className='bg-[var(--blue-PRY)] text-white font-medium py-1 px-3 hover:bg-[var(--accent)] rounded-md cursor-pointer hover:-translate-y-0.5 transition-all duration-300 text-sm lg:text-base'
             >
               Hire Me
             </a>

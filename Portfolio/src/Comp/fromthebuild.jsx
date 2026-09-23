@@ -62,7 +62,7 @@ const FromTheBuild = () => {
     <motion.section
       id='build'
       ref={servicesRef}
-      className='w-full px-5 sm:px-8 md:px-12 lg:px-32 py-16 sm:py-24 lg:py-28'
+      className='w-full px-5 sm:px-8 md:px-12 lg:px-32 py-16 sm:py-24 lg:py-28 border-b border-[var(--border)]'
       style={{
         background:
           'radial-gradient(120% 100% at 20% 0%, #16233d 0%, #0B1120 55%)',

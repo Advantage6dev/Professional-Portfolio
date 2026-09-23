@@ -41,7 +41,7 @@ const stepsBottom = [
 
 const StepCard = ({ num, tag, title, desc, className = '' }) => (
   <div
-    className={`bg-[var(--whiteCL)] border border-[var(--border)] transition-all duration-300 hover:-translate-y-1.5 rounded-xl p-6 sm:p-7 ${className}`}
+    className={`bg-[var(--whiteCL)] border border-[var(--border)] transition-all duration-300 hover:-translate-y-1.5 rounded-xl p-6 sm:p-7 ${className} sm:h-60 md:50`}
   >
     <div className='flex items-start justify-between mb-4'>
       <span className='text-2xl sm:text-3xl font-bold text-[var(--blue-PRY)]'>

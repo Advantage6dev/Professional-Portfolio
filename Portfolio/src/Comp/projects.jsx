@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import { useInView } from 'framer-motion';
 import RevealOnScroll from './revealonscroll.jsx';
+import { IoMdArrowForward } from 'react-icons/io';
 
 const projects = [
   {
@@ -43,8 +44,6 @@ const projects = [
   },
 ];
 
-// Plain markup now — RevealOnScroll (wrapped around this in the .map() below)
-// is what handles the animation, so this component no longer needs motion.div itself.
 const ProjectCard = ({ p }) => {
   return (
     <div className='grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-14 items-center py-10 sm:py-12'>
@@ -100,11 +99,11 @@ const ProjectCard = ({ p }) => {
             <a
               href={p.livelink}
               target='_blank'
-              className='group inline-flex items-center gap-2 px-4 py-2 text-white font-bold rounded-md transition-all duration-300 hover:-translate-y-1 hover:bg-[var(--accent)] bg-[var(--blue-PRY)] text-base'
+              className='group inline-flex items-center gap-1 px-4 py-2 text-white font-bold rounded-md transition-all duration-300 hover:-translate-y-1 hover:bg-[var(--accent)] bg-[var(--blue-PRY)] text-base'
             >
               <span>Live Demo</span>
               <span className='transition-transform duration-300 rotate-[-30deg] group-hover:rotate-0 w-fit text-xl text-white'>
-                →
+                <IoMdArrowForward />
               </span>
             </a>
           )}

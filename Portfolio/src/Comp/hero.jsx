@@ -6,7 +6,7 @@ const Hero = () => {
     <>
       <header
         id='hero'
-        className='h-[calc(100vh-67px)] max-h-[800px] relative bg-[var(--bgCL)] border-b border-[var(--border)] overflow-hidden  md:block animate-slide-in w-full'
+        className='h-[calc(100dvh-67px)] max-h-[800px] relative bg-[var(--bgCL)] border-b border-[var(--border)] overflow-hidden  md:block animate-slide-in w-full'
       >
         <section className='px-5 pt-14 md:px-12 md:pt-18 lg:px-32 lg:pt-22  relative z-20 mx-auto flex items-center'>
           <div className=''>

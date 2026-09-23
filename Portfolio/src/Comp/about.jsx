@@ -154,9 +154,13 @@ const About = () => {
               </p>
 
               <div className='mt-4'>
-                <button className='px-7 py-2 bg-[var(--blue-PRY)] text-white font-medium rounded-md hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-1 text-base cursor-pointer'>
+                <a
+                  href='/OJEKUNLE_DAVID_JOY-CV.pdf'
+                  target='_blank'
+                  className='px-7 py-2 bg-[var(--blue-PRY)] text-white font-medium rounded-md hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-0.5 text-base cursor-pointer '
+                >
                   View CV
-                </button>
+                </a>
               </div>
             </div>
 
