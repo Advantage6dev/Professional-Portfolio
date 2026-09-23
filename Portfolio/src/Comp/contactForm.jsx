@@ -50,7 +50,7 @@ const ContactForm = () => {
     <section>
       <form
         onSubmit={handleSubmit}
-        className='bg-[var(--bgCL)] border border-[var(--border)] rounded-2xl p-6 sm:p-8'
+        className='bg-[var(--bgCL)] border border-[var(--border)] rounded-2xl p-6 sm:p-8 md:h-97'
       >
         <div className='grid grid-cols-1 sm:grid-cols-2 gap-5'>
           <div>
