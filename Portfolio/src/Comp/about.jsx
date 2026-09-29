@@ -216,14 +216,13 @@ const About = () => {
             </div>
           </RevealOnScroll>
 
-          {/* Photo side — sticky on large screens so it stays put while
-              the (taller) text column scrolls past it */}
+          {/* Photo side*/}
           <RevealOnScroll
             delay={0.1}
-            className='order-1 md:order-2 lg:sticky lg:top-34 rounded border border-[var(--border)] flex items-end overflow-hidden h-100 w-full'
+            className='order-1 md:order-2 lg:sticky lg:top-34 rounded border border-[var(--border)] flex items-end overflow-hidden h-100 w-85 md:justify-self-end mr-8'
           >
             <img
-              src='/images/about.jpg'
+              src='/images/about-section.jpeg'
               alt='about-img'
               className='h-full hover:scale-105 transition-all duration-300 w-full'
             />
