@@ -129,15 +129,15 @@ const About = () => {
       <div className='max-w-[1120px] mx-auto px-6 sm:px-10 lg:px-8 py-16 sm:py-24'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start'>
           {/* Text side */}
-          <RevealOnScroll delay={0.2} className='order-2 md:order-1'>
-            <div className='flex items-center gap-2 mb-3.5'>
+          <RevealOnScroll delay={0.2} className='order-2 md:order-1 '>
+            <div className='flex items-center justify-center md:justify-start gap-2 mb-3.5'>
               <span className='w-1.5 h-1.5 rounded-full bg-[var(--blue-PRY)]'></span>
               <span className='text-sm font-semibold text-[var(--blue-PRY)]'>
                 About
               </span>
             </div>
 
-            <div className='mt-5 space-y-2 max-w-[520px]'>
+            <div className='mt-5 space-y-2 max-w-[520px] mx-auto md:mx-0'>
               <p className='text-[var(--secoundaryText)] text-[15px] sm:text-base leading-relaxed'>
                 I'm a web developer who enjoys turning ideas into clean,
                 interactive, and meaningful digital experiences. I care about
@@ -153,25 +153,25 @@ const About = () => {
                 them, and constantly learning along the way.
               </p>
 
-              <div className='mt-4'>
+              <div className='pt-1 flex justify-center md:justify-start'>
                 <a
                   href='/OJEKUNLE_DAVID_JOY-CV.pdf'
                   target='_blank'
-                  className='px-7 py-2 bg-[var(--blue-PRY)] text-white font-medium rounded-md hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-0.5 text-base cursor-pointer '
+                  className='px-7 py-2 bg-[var(--blue-PRY)] text-white font-medium rounded-md hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-1 text-base cursor-pointer inline-block'
                 >
                   View CV
                 </a>
               </div>
             </div>
 
-            <div className='flex items-center gap-2 mt-6 mb-2'>
+            <div className='flex items-center gap-2 mt-6 mb-2 justify-center md:justify-start'>
               <span className='w-1.5 h-1.5 rounded-full bg-[var(--blue-PRY)]'></span>
               <span className='text-sm font-semibold text-[var(--blue-PRY)]'>
                 The tools i use to build for the web
               </span>
             </div>
 
-            <div className='space-y-2 max-w-[520px]'>
+            <div className='space-y-2 max-w-[520px] mx-auto md:mx-0'>
               <p className='text-[var(--secoundaryText)] text-[15px] sm:text-base leading-relaxed'>
                 From interfaces to full web experiences, I use a modern stack to
                 turn ideas into fast, functional, and polished websites.
@@ -188,7 +188,7 @@ const About = () => {
               </div>
             </div>
 
-            <div className='flex gap-10 sm:gap-12 mt-4 pt-2'>
+            <div className='flex gap-10 sm:gap-12 mt-4 pt-2 justify-center md:justify-start'>
               <div>
                 <h4 className='text-2xl sm:text-[28px] font-semibold text-[var(--mainText)]'>
                   <CountUp to={5} />
@@ -219,7 +219,7 @@ const About = () => {
           {/* Photo side*/}
           <RevealOnScroll
             delay={0.1}
-            className='order-1 md:order-2 lg:sticky lg:top-34 rounded border border-[var(--border)] flex items-end overflow-hidden h-100 w-85 md:justify-self-end mr-8'
+            className='order-1 md:order-2 md:sticky md:top-34 rounded border border-[var(--border)] flex items-end overflow-hidden h-100 w-full sm:w-85 md:justify-self-end lg:mr-8  mx-auto md:mx-0'
           >
             <img
               src='/images/about-section.jpeg'
