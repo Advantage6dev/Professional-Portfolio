@@ -126,7 +126,7 @@ const stack_Text = [
 const About = () => {
   return (
     <section id='about' className='bg-[var(--bg-CL)] w-full'>
-      <div className='max-w-[1120px] mx-auto px-6 sm:px-10 lg:px-2.5 py-16 sm:py-24'>
+      <div className='max-w-[1200px] mx-auto px-6 sm:px-10 lg:px-14 py-16 sm:py-24'>
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start'>
           {/* Text side */}
           <RevealOnScroll delay={0.2} className='order-2 md:order-1 '>
