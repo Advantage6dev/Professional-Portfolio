@@ -5,7 +5,37 @@ import { IoMdArrowForward } from 'react-icons/io';
 
 const projects = [
   {
-    tag: '01 — Recipe App',
+    tag: '01 — AI Assistant',
+    title: 'Grandeur Reply Assistant',
+    desc: 'An AI-powered personal assistant built with an agent-based architecture, using Ollama and Gemma to enable local AI inference and intelligent task handling.',
+    stack: [
+      'React',
+      'CSS3',
+      'TypeScript',
+      'Node.js',
+      'Ollama',
+      'Gemma',
+      'AI Agent',
+    ],
+    img: '/images/GrandeurReplyass.png',
+    livelink: '',
+    gitlink: '',
+    reverse: false,
+    status: 'ongoing',
+  },
+  {
+    tag: '02 — Portfolio',
+    title: 'A Professional Portfolio',
+    desc: 'A modern developer portfolio built to showcase my work, skills, and services through a clean, responsive, and interactive experience.',
+    stack: ['React', 'TailwindCSS', 'Framer-Motion', 'VITE'],
+    img: '/images/professional-portfolio.png',
+    livelink: 'https://ojekunledavidjoy-portfolio.vercel.app/',
+    gitlink: 'https://github.com/Advantage6dev/Professional-Portfolio',
+    reverse: true,
+    status: 'completed',
+  },
+  {
+    tag: '03 — Recipe App',
     title: 'Forkify App',
     desc: 'A JavaScript-powered recipe application featuring API-based recipe search, detailed recipe views, pagination, and saved recipes that persist between sessions.',
     stack: ['HTML5', 'CSS3', 'JavaScript', 'Parcel'],
@@ -16,7 +46,7 @@ const projects = [
     status: 'completed',
   },
   {
-    tag: '02 — Fitness Tracker',
+    tag: '04 — Fitness Tracker',
     title: 'Mapty App',
     desc: 'A location-based workout tracker for logging running and cycling activities on an interactive map, with persistent workout data stored in the browser.',
     stack: [
@@ -32,7 +62,7 @@ const projects = [
     status: 'completed',
   },
   {
-    tag: '03 — E-commerce',
+    tag: '05 — E-commerce',
     title: 'Grandeur Treats and Beads',
     desc: 'A responsive e-commerce website designed to showcase handmade beads and food products, featuring product browsing, clear product details, and direct WhatsApp ordering to make purchasing simple for customers.',
     stack: ['Framer', 'HTML5', 'CSS3', 'JavaScript'],
@@ -60,10 +90,10 @@ const ProjectCard = ({ p }) => {
               : 'bg-emerald-100 text-emerald-700 border-emerald-200'
           }`}
         >
-          {p.status === 'ongoing' ? 'Ongoing Project' : 'Completed'}
+          {p.status === 'ongoing' ? 'In Progress' : 'Completed'}
         </span>
 
-        <img src={p.img} alt={p.title} className='block w-full h-full' />
+        <img src={p.img} alt={p.title} className='block w-full h-full ' />
       </div>
 
       {/* text */}
