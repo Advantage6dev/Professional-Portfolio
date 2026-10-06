@@ -130,7 +130,7 @@ const About = () => {
         <div className='grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start'>
           {/* Text side */}
           <RevealOnScroll delay={0.2} className='order-2 md:order-1 '>
-            <div className='flex items-center justify-center md:justify-start gap-2 mb-3.5'>
+            <div className='flex items-center justify-start gap-2 mb-3.5'>
               <span className='w-1.5 h-1.5 rounded-full bg-[var(--blue-PRY)]'></span>
               <span className='text-sm font-semibold text-[var(--blue-PRY)]'>
                 About
