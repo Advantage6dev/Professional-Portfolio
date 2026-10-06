@@ -17,7 +17,7 @@ const projects = [
       'Gemma',
       'AI Agent',
     ],
-    img: '/images/GrandeurReplyass.png',
+    img: '/images/replyassistant.png',
     livelink: '',
     gitlink: '',
     reverse: false,
