@@ -81,7 +81,7 @@ const navbar = () => {
               />{' '}
             </button>
             <h2 className='font-semibold text-sm md:text-base bg-white border border-[var(--border)] py-1.5 lg:py-2 px-[14px] rounded-md cursor-text'>
-              Advantage<span className='text-[var(--accent)]'>_dev</span>
+              Advantage<span className='text-[var(--accent)]'>__dev</span>5
             </h2>
           </div>
           <div className='hidden md:flex gap-3 lg:gap-6 items-center justify-between'>
