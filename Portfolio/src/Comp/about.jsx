@@ -118,6 +118,7 @@ const stack_Text = [
   { name: 'TypeScript' },
   { name: 'React.js' },
   { name: 'Tailwind CSS' },
+  { name: 'Figma' },
   { name: 'Framer' },
   { name: 'Git' },
   { name: 'GitHub' },
@@ -139,7 +140,8 @@ const About = () => {
 
             <div className='mt-5 space-y-2 max-w-[520px] mx-auto md:mx-0'>
               <p className='text-[var(--secoundaryText)] text-[15px] sm:text-base leading-relaxed'>
-                I'm a web developer who enjoys turning ideas into clean,
+                Hi,I'm Ojekunle David-Joy, a Frontend Web Developer, known
+                online as Advantage__dev. I enjoy turning ideas into clean,
                 interactive, and meaningful digital experiences. I care about
                 the details that make a website feel smooth not just how it
                 looks, but how it works and feels to use.
@@ -147,10 +149,10 @@ const About = () => {
 
               <p className='text-[var(--secoundaryText)] text-[15px] sm:text-base leading-relaxed'>
                 My journey started with HTML, CSS, and JavaScript, and I've
-                since grown into working with React, Tailwind CSS, and other
-                modern web technologies. Most of what I know has come from
-                building real projects, experimenting, breaking things, fixing
-                them, and constantly learning along the way.
+                since grown into working with React, Tailwind CSS, TypeScript
+                and other modern web technologies. Most of what I know has come
+                from building real projects, experimenting, breaking things,
+                fixing them, and constantly learning along the way.
               </p>
 
               <div className='pt-1 flex justify-center md:justify-start'>
@@ -167,7 +169,7 @@ const About = () => {
             <div className='flex items-center gap-2 mt-6 mb-2 justify-center md:justify-start'>
               <span className='w-1.5 h-1.5 rounded-full bg-[var(--blue-PRY)]'></span>
               <span className='text-sm font-semibold text-[var(--blue-PRY)]'>
-                The tools i use to build for the web
+                Core Technologies
               </span>
             </div>
 

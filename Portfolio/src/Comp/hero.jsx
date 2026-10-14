@@ -19,7 +19,7 @@ const Hero = () => {
               </div>
               <h1 className='font-bold text-6xl lg:text-7xl text-[var(--mainText)] leading-tighter md:leading-tight  tracking-wide'>
                 Creating{' '}
-                <span className='text-[var(--accent)]'>Web Experience</span>{' '}
+                <span className='text-[var(--accent)]'>Web Experiences</span>{' '}
                 That Drives Results
               </h1>
               <p className='text-[var(--secoundaryText)] text-base font-medium leading-tight max-w-160'>

@@ -44,6 +44,10 @@ const socialLinks = [
     href: 'https://github.com/Advantage6dev',
     text: 'GitHub',
   },
+  {
+    href: 'https://dev.to/advantage__dev',
+    text: 'Dev.to',
+  },
 ];
 
 const Footer = () => {
@@ -57,7 +61,7 @@ const Footer = () => {
 
           <p className='font-medium text-lg lg:text-xl text-[#f8fafc] mt-2 max-w-70 md:max-w-full'>
             Creating{' '}
-            <span className='text-[var(--accent)]'>Web Experience</span> That
+            <span className='text-[var(--accent)]'>Web Experiences</span> That
             Drives Results.
           </p>
         </div>
