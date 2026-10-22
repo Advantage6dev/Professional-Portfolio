@@ -5,6 +5,7 @@ const navLinks = [
   { href: '#projects', label: 'Projects' },
   { href: '#about', label: 'About' },
   { href: '#services', label: 'Services' },
+  { href: '#why-choose-me', label: '  Why choose me' },
   { href: '#faq', label: 'FAQ' },
   { href: '#contact', label: 'Contact' },
 ];
@@ -26,12 +27,20 @@ const navbar = () => {
       'services',
       'how-i-work',
       'projects',
+      'why-choose-me',
       'build',
       'faq',
       'contact',
     ];
     // only these get a link in the navbar
-    const linkedSections = ['projects', 'about', 'services', 'faq', 'contact'];
+    const linkedSections = [
+      'projects',
+      'about',
+      'services',
+      'why-choose-me',
+      'faq',
+      'contact',
+    ];
 
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 5);
@@ -67,7 +76,7 @@ const navbar = () => {
           <div className='flex gap-5 items-center justify-between'>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className='relative flex items-center justify-center cursor-pointer md:hidden'
+              className='relative flex items-center justify-center cursor-pointer lg:hidden'
             >
               {' '}
               {/* Menu icon */}{' '}
@@ -83,7 +92,7 @@ const navbar = () => {
               Advantage<span className='text-[var(--accent)]'>__dev</span>
             </h2>
           </div>
-          <div className='hidden md:flex gap-3 lg:gap-6 items-center justify-between'>
+          <div className='hidden lg:flex lg:gap-6 items-center justify-between'>
             {navLinks.map(({ href, label }) => (
               <a
                 key={href}
@@ -122,7 +131,7 @@ const navbar = () => {
         </section>
 
         <section
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${
+          className={`lg:hidden overflow-hidden transition-all duration-300 ease-out ${
             isMenuOpen
               ? 'max-h-[400px] opacity-100 translate-y-0 pt-3'
               : 'max-h-0 opacity-0 -translate-y-3 pt-0'
@@ -150,6 +159,13 @@ const navbar = () => {
               className='font-medium text-bse text-[var(--mainText)] hover:text-[var(--blue-PRY)] py-1.5 transition-all duration-300 border-b-1 border-[var(--border)] px-4 sm:px-8'
             >
               Services
+            </a>
+            <a
+              href='#why-choose-me'
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              className='font-medium text-bse text-[var(--mainText)] hover:text-[var(--blue-PRY)] py-1.5 transition-all duration-300 border-b-1 border-[var(--border)] px-4 sm:px-8'
+            >
+              Why Choose me
             </a>
             <a
               href='#faq'

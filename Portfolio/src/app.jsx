@@ -5,6 +5,7 @@ import About from './Comp/about.jsx';
 import Services from './Comp/services.jsx';
 import HowIWork from './Comp/howiwork.jsx';
 import Projects from './Comp/projects.jsx';
+import WhyChooseMe from './Comp/whychooseme.jsx';
 import FromTheBuild from './Comp/fromthebuild.jsx';
 import FAQ from './Comp/faq.jsx';
 import BackToTop from './Comp/topbutton.jsx';
@@ -21,6 +22,7 @@ const app = () => {
       <Services />
       <HowIWork />
       <Projects />
+      <WhyChooseMe />
       <FromTheBuild />
       <FAQ />
       <Contact />
