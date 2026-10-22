@@ -155,13 +155,19 @@ const About = () => {
                 fixing them, and constantly learning along the way.
               </p>
 
-              <div className='pt-1 flex justify-center md:justify-start'>
+              <div className='pt-1 flex gap-4 justify-center md:justify-start'>
                 <a
                   href='/OJEKUNLE_DAVID_JOY-CV.pdf'
                   target='_blank'
                   className='px-7 py-2 bg-[var(--blue-PRY)] text-white font-medium rounded-md hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-1 text-base cursor-pointer inline-block'
                 >
                   View CV
+                </a>
+                <a
+                  href='#contact'
+                  className='group inline-flex items-center gap-2 px-4 py-2 text-[var(--mainText)] font-bold rounded-md border border-[var(--border)] transition-all duration-300 hover:-translate-y-1 hover:bg-[var(--border)] bg-[var(--navbar)] text-base'
+                >
+                  Contact Me
                 </a>
               </div>
             </div>
@@ -193,7 +199,7 @@ const About = () => {
             <div className='flex gap-10 sm:gap-12 mt-4 pt-2 justify-center md:justify-start'>
               <div>
                 <h4 className='text-2xl sm:text-[28px] font-semibold text-[var(--mainText)]'>
-                  <CountUp to={5} />
+                  <CountUp to={4} />
                 </h4>
                 <span className='text-xs sm:text-[13px] text-[var(--secoundaryText)] font-medium'>
                   Projects shipped
