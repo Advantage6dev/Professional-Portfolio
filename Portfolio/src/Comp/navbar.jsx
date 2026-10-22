@@ -112,14 +112,22 @@ const navbar = () => {
           <div className='flex gap-1.5 lg:gap-3 items-center'>
             <button
               onClick={toggleTheme}
+              role='switch'
+              aria-checked={isDark}
               aria-label='Toggle dark mode'
-              className='w-9 h-9 flex items-center justify-center rounded-full hover:bg-[var(--border)] transition-all duration-300 cursor-pointer'
+              className={`relative w-12 h-[26px] rounded-full transition-colors duration-300 cursor-pointer ${
+                isDark ? 'bg-slate-700' : 'bg-slate-200'
+              }`}
             >
-              {isDark ? (
-                <FiMoon className='text-blue-400 text-2xl' />
-              ) : (
-                <FiSun className='text-yellow-500 text-2xl' />
-              )}
+              <span
+                className={`absolute top-[3px] left-[3px] w-5 h-5 rounded-full flex items-center justify-center transition-all duration-300 ${
+                  isDark
+                    ? 'translate-x-[22px] bg-slate-900 text-blue-400'
+                    : 'translate-x-0 bg-white text-yellow-500'
+                }`}
+              >
+                {isDark ? <FiMoon size={14} /> : <FiSun size={14} />}
+              </span>
             </button>
             <a
               href='#contact'
