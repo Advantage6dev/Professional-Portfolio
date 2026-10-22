@@ -25,7 +25,7 @@ const steps = [
   },
 ];
 
-const StepCard = ({ num, tag, title, desc, className = '' }) => (
+const StepCard = ({ num, title, desc, className = '' }) => (
   <div
     className={`group bg-[var(--whiteCL)] border border-[var(--border)] transition-all duration-300 hover:-translate-y-1.5 rounded-xl p-6 sm:p-7 ${className} sm:h-60 md:h-50`}
   >

@@ -56,7 +56,7 @@ const Footer = () => {
       <div className='flex flex-col sm:flex-row sm:justify-between sm:items-start gap-8 md:gap-10 py-8 sm:py-10'>
         <div className='w-full sm:max-w-100'>
           <h2 className='font-semibold text-sm md:text-base bg-white border border-[var(--border)] py-1 lg:py-2 px-[14px] rounded-md cursor-text w-fit'>
-            Advantage<span className='text-[var(--accent)]'>_dev</span>
+            Advantage<span className='text-[var(--accent)]'>__dev</span>
           </h2>
 
           <p className='font-medium text-lg lg:text-xl text-[#f8fafc] mt-2 max-w-70 md:max-w-full'>
@@ -66,7 +66,6 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Link columns — grouped together, right edge */}
         <div className='flex gap-10 sm:gap-16'>
           <div className='min-w-[120px]'>
             <h2 className='text-[var(--blue-PRY)] text-lg font-medium'>
