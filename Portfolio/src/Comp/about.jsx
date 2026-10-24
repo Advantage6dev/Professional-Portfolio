@@ -199,7 +199,7 @@ const About = () => {
             <div className='flex gap-10 sm:gap-12 mt-4 pt-2 justify-center md:justify-start'>
               <div>
                 <h4 className='text-2xl sm:text-[28px] font-semibold text-[var(--mainText)]'>
-                  <CountUp to={4} />
+                  <CountUp to={3} />
                 </h4>
                 <span className='text-xs sm:text-[13px] text-[var(--secoundaryText)] font-medium'>
                   Projects shipped
