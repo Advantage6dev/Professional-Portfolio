@@ -50,6 +50,7 @@ const projects = [
     title: 'Mapty App',
     desc: 'A location-based workout tracker for logging running and cycling activities on an interactive map, with persistent workout data stored in the browser.',
     stack: [
+      'HTML5',
       'CSS3',
       'Vanilla JavaScript (OOP/ES6 Classes)',
       'Leaflet.js',
@@ -59,18 +60,18 @@ const projects = [
     img: '/images/Mapty.png',
     livelink: 'https://mapty-nu-steel.vercel.app/',
     gitlink: 'https://github.com/Advantage6dev/Mapty',
-    reverse: true,
+    reverse: false,
     status: 'completed',
   },
   {
     tag: '04 — E-commerce',
     title: 'Sneakers E-commerce',
     desc: 'A responsive sneaker shopping interface built from a design challenge on Frontend Mentor. I used this project to test my frontend development skills, translating a provided UI design into a functional, user-friendly shopping experience.',
-    stack: ['Framer', 'HTML5', 'CSS3', 'JavaScript'],
+    stack: ['HTML5', 'CSS3', 'JavaScript'],
     img: '/images/sneakers.jpg',
     livelink: 'https://e-commerce-rho-ashen-63.vercel.app/',
     gitlink: 'https://github.com/Advantage6dev/E-Commerce',
-    reverse: false,
+    reverse: true,
     status: 'completed',
   },
 ];
@@ -165,7 +166,7 @@ const Projects = () => {
             </span>
           </div>
 
-          <h2 className='font-heading text-4xl font-bold tracking-tight text-[28px] sm:text-[34px] lg:text-[40px] max-w-[500px]'>
+          <h2 className='font-heading text-4xl font-bold tracking-tight text-[28px] sm:text-[34px] lg:text-[40px] max-w-[500px] text-[var(--mainText)]'>
             Building Ideas into Real Products
           </h2>
         </div>

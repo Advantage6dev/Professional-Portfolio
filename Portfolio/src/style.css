@@ -138,3 +138,19 @@ section {
     transform: translateX(-50%);
   }
 }
+
+/* WHATSAPP ANIMATION */
+@keyframes wa-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.15;
+  }
+}
+.wa-breathe {
+  animation: wa-breathe 2s ease-in-out infinite;
+}
