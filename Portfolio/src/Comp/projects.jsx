@@ -9,7 +9,7 @@ const projects = [
     title: 'Grandeur Reply Assistant',
     desc: 'An AI-powered personal assistant built with an agent-based architecture, using Ollama and Gemma to enable local AI inference and intelligent task handling.',
     stack: [
-      'React',
+      'React.js',
       'CSS3',
       'TypeScript',
       'Node.js',
@@ -27,7 +27,7 @@ const projects = [
     tag: '02 — Portfolio',
     title: 'A Professional Portfolio',
     desc: 'A modern developer portfolio built to showcase my work, skills, and services through a clean, responsive, and interactive experience.',
-    stack: ['React', 'TailwindCSS', 'Framer-Motion', 'VITE'],
+    stack: ['React.js', 'TailwindCSS', 'Framer-Motion', 'VITE'],
     img: '/images/portfolio.png',
     livelink: 'https://ojekunledavidjoy-portfolio.vercel.app/',
     gitlink: 'https://github.com/Advantage6dev/Professional-Portfolio',
