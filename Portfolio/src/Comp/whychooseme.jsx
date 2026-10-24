@@ -54,7 +54,7 @@ const WhyChooseMe = () => {
     <motion.section
       id='why-choose-me'
       ref={servicesRef}
-      className={`w-full bg-[var(--navbar)] px-5 sm:px-8 md:px-12 lg:px-32 py-16 sm:py-24 lg:py-28 `}
+      className={`w-full bg-[var(--navbar)] px-5 sm:px-8 md:px-12 lg:px-32 py-16 sm:py-24 lg:py-28 border-t border-[var(--border)]`}
     >
       <div
         className={`max-w-[1200px] mx-auto ${isInView ? 'animate-slide-in' : 'opacity-0'}`}
@@ -66,7 +66,7 @@ const WhyChooseMe = () => {
           </span>
         </div>
 
-        <h2 className='text-4xl font-bold leading-tight tracking-tight text-[var(--mainText)] sm:text-5xl max-w-3xl'>
+        <h2 className='font-heading text-4xl font-bold tracking-tight text-[var(--mainText)] sm:text-5xl max-w-3xl'>
           Why Brands work with me
         </h2>
 

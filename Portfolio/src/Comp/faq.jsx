@@ -57,7 +57,7 @@ const FAQ = () => {
           </span>
         </div>
 
-        <h2 className='font-semibold text-[var(--mainText)] leading-tight text-[28px] sm:text-[34px] lg:text-[40px] max-w-[600px]'>
+        <h2 className='font-heading font-bold tracking-tight text-[28px] sm:text-[34px] lg:text-[40px] max-w-[600px]'>
           Quick Answers
         </h2>
 

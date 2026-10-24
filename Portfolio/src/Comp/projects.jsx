@@ -17,7 +17,7 @@ const projects = [
       'Gemma',
       'AI Agent',
     ],
-    img: '/images/replyassistant.png',
+    img: '/images/assistant-reply.png',
     livelink: '',
     gitlink: '',
     reverse: false,
@@ -28,28 +28,29 @@ const projects = [
     title: 'A Professional Portfolio',
     desc: 'A modern developer portfolio built to showcase my work, skills, and services through a clean, responsive, and interactive experience.',
     stack: ['React', 'TailwindCSS', 'Framer-Motion', 'VITE'],
-    img: '/images/professional-portfolio.png',
+    img: '/images/portfolio.png',
     livelink: 'https://ojekunledavidjoy-portfolio.vercel.app/',
     gitlink: 'https://github.com/Advantage6dev/Professional-Portfolio',
     reverse: true,
     status: 'completed',
   },
+  // {
+  //   tag: '03 — Recipe App',
+  //   title: 'Forkify App',
+  //   desc: 'A JavaScript-powered recipe application featuring API-based recipe search, detailed recipe views, pagination, and saved recipes that persist between sessions.',
+  //   stack: ['HTML5', 'CSS3', 'JavaScript', 'Parcel'],
+  //   img: '/images/Forkify.png',
+  //   livelink: 'https://forkifyapp-millionrecipe.vercel.app/',
+  //   gitlink: 'https://github.com/Advantage6dev/Forkify-App',
+  //   reverse: false,
+  //   status: 'completed',
+  // },
   {
-    tag: '03 — Recipe App',
-    title: 'Forkify App',
-    desc: 'A JavaScript-powered recipe application featuring API-based recipe search, detailed recipe views, pagination, and saved recipes that persist between sessions.',
-    stack: ['HTML5', 'CSS3', 'JavaScript', 'Parcel'],
-    img: '/images/Forkify.png',
-    livelink: 'https://forkifyapp-millionrecipe.vercel.app/',
-    gitlink: 'https://github.com/Advantage6dev/Forkify-App',
-    reverse: false,
-    status: 'completed',
-  },
-  {
-    tag: '04 — Fitness Tracker',
+    tag: '03 — Fitness Tracker',
     title: 'Mapty App',
     desc: 'A location-based workout tracker for logging running and cycling activities on an interactive map, with persistent workout data stored in the browser.',
     stack: [
+      'CSS3',
       'Vanilla JavaScript (OOP/ES6 Classes)',
       'Leaflet.js',
       'Geolocation API',
@@ -62,13 +63,13 @@ const projects = [
     status: 'completed',
   },
   {
-    tag: '05 — E-commerce',
-    title: 'Grandeur Treats and Beads',
-    desc: 'A responsive e-commerce website designed to showcase handmade beads and food products, featuring product browsing, clear product details, and direct WhatsApp ordering to make purchasing simple for customers.',
+    tag: '04 — E-commerce',
+    title: 'Sneakers E-commerce',
+    desc: 'A responsive sneaker shopping interface built from a design challenge on Frontend Mentor. I used this project to test my frontend development skills, translating a provided UI design into a functional, user-friendly shopping experience.',
     stack: ['Framer', 'HTML5', 'CSS3', 'JavaScript'],
-    img: '/images/Grandeur.png',
-    livelink: 'https://grandeurs.vercel.app/',
-    gitlink: 'https://github.com/Advantage6dev/Grandeur',
+    img: '/images/sneakers.jpg',
+    livelink: 'https://e-commerce-rho-ashen-63.vercel.app/',
+    gitlink: 'https://github.com/Advantage6dev/E-Commerce',
     reverse: false,
     status: 'completed',
   },
@@ -150,7 +151,7 @@ const Projects = () => {
   return (
     <section
       id='projects'
-      className='w-full bg-[var(--bg-CL)] px-5 sm:px-8 md:px-12 lg:px-32 py-16 sm:py-24 lg:py-28'
+      className='w-full bg-[var(--bg-CL)] px-5 sm:px-8 md:px-12 lg:px-32 py-16 sm:py-24 lg:py-28 border-t border-[var(--border)]'
     >
       <div className='max-w-[1200px] mx-auto'>
         <div
@@ -160,12 +161,12 @@ const Projects = () => {
           <div className='flex items-center gap-2 mb-3.5'>
             <span className='w-1.5 h-1.5 rounded-full bg-[var(--blue-PRY)]'></span>
             <span className='text-sm font-semibold text-[var(--blue-PRY)]'>
-              Work I've shipped
+              Selected Projects
             </span>
           </div>
 
-          <h2 className='font-semibold text-[var(--mainText)] leading-tight text-[28px] sm:text-[34px] lg:text-[40px] max-w-[600px]'>
-            A look at some of the products and experiences I've built.
+          <h2 className='font-heading text-4xl font-bold tracking-tight text-[28px] sm:text-[34px] lg:text-[40px] max-w-[500px]'>
+            Building Ideas into Real Products
           </h2>
         </div>
 

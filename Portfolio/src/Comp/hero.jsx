@@ -13,13 +13,13 @@ const Hero = () => {
             <div className='flex flex-col gap-4 lg:max-w-200'>
               <div className='flex gap-2 items-center'>
                 <span className='bg-[var(--blue-PRY)] w-2 h-2 md:w-2.5 md:h-2.5 rounded-full'></span>
-                <h1 className='font-medium text-sm uppercase text-[var(--mainText)]'>
-                  Open to opportunities
+                <h1 className='font-medium text-sm uppercase text-[var(--blue-PRY)]'>
+                  Web Developer · Open to Opportunities
                 </h1>
               </div>
               <h1 className='font-bold text-6xl lg:text-7xl text-[var(--mainText)] leading-tighter md:leading-tight  tracking-wide'>
                 Creating{' '}
-                <span className='text-[var(--accent)]'>Web Experiences</span>{' '}
+                <span className='text-[var(--accent)]'>Web Experience</span>{' '}
                 That Drives Results
               </h1>
               <p className='text-[var(--secoundaryText)] text-base font-medium leading-tight max-w-160'>

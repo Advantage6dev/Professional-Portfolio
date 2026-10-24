@@ -115,11 +115,11 @@ const Services = () => {
           <div className='flex items-center gap-2 mb-3.5'>
             <span className='w-1.5 h-1.5 rounded-full bg-[var(--blue-PRY)]'></span>
             <span className='text-sm font-semibold text-[var(--blue-PRY)]'>
-              Services
+              What I Offer · Services
             </span>
           </div>
 
-          <h2 className='text-4xl font-bold leading-tight tracking-tight text-[var(--mainText)] sm:text-5xl max-w-3xl'>
+          <h2 className='font-heading text-4xl font-bold tracking-tight text-[var(--mainText)] sm:text-5xl max-w-3xl'>
             Need it built? Let's make it happen.
           </h2>
 

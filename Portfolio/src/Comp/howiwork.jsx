@@ -71,7 +71,7 @@ const HowIWork = () => {
     <motion.section
       id='how-i-work'
       ref={servicesRef}
-      className={`w-full bg-[var(--navbar)] px-5 sm:px-8 md:px-12 lg:px-32 py-16 sm:py-24 lg:py-28 `}
+      className={`w-full bg-[var(--navbar)] px-5 sm:px-8 md:px-12 lg:px-32 py-16 sm:py-24 lg:py-28 border-t border-[var(--border)]`}
     >
       <div
         className={`max-w-[1200px] mx-auto ${isInView ? 'animate-slide-in' : 'opacity-0'}`}
