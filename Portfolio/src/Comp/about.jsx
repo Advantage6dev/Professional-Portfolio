@@ -157,7 +157,7 @@ const About = () => {
 
               <div className='pt-1 flex gap-4 justify-center md:justify-start'>
                 <a
-                  href='/OJEKUNLEDAVID-JOY__CV.docx'
+                  href='/OjekunleDavid-Joy__CV.pdf'
                   target='_blank'
                   className='px-7 py-2 bg-[var(--blue-PRY)] text-white font-medium rounded-md hover:bg-[var(--accent)] transition-all duration-300 hover:-translate-y-1 text-base cursor-pointer inline-block'
                 >
