@@ -47,7 +47,7 @@ const Hero = () => {
         </section>
         {/* Tech stack */}
         <div
-          className='
+          className='hidden sm:block
        pointer-events-none
        absolute
        right-[-60%]
