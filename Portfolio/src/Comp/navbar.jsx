@@ -68,7 +68,7 @@ const navbar = () => {
   return (
     <>
       <nav
-        className={`border-b-1 border-[var(--border)] w-full  py-3 bg-[var(--navbar)] ${
+        className={`border-b-1 border-[var(--border)] w-full  py-4 bg-[var(--navbar)] ${
           isScrolled ? 'fixed top-0 left-0 shadow-md' : 'relative'
         } z-50`}
       >
@@ -81,14 +81,14 @@ const navbar = () => {
               {' '}
               {/* Menu icon */}{' '}
               <i
-                className={`fa-solid fa-bars absolute text-2xl text-[var(--blue-PRY)] transition-all duration-300 ease-in-out ${isMenuOpen ? 'rotate-90 opacity-0 scale-75' : 'rotate-0 opacity-100 scale-100'}`}
+                className={`fa-solid fa-bars absolute text-[1.65rem] text-[var(--blue-PRY)] transition-all duration-300 ease-in-out ${isMenuOpen ? 'rotate-90 opacity-0 scale-75' : 'rotate-0 opacity-100 scale-100'}`}
               />{' '}
               {/* Close icon */}{' '}
               <i
-                className={`fa-solid fa-xmark absolute text-2xl text-[var(--blue-PRY)] transition-all duration-300 ease-in-out ${isMenuOpen ? 'rotate-0 opacity-100 scale-100' : '-rotate-90 opacity-0 scale-75'}`}
+                className={`fa-solid fa-xmark absolute text-[1.65rem] text-[var(--blue-PRY)] transition-all duration-300 ease-in-out ${isMenuOpen ? 'rotate-0 opacity-100 scale-100' : '-rotate-90 opacity-0 scale-75'}`}
               />{' '}
             </button>
-            <h2 className='font-semibold text-sm md:text-base bg-white border border-[var(--border)] py-1.5 lg:py-2 px-[14px] rounded-md cursor-text'>
+            <h2 className='font-semibold text-base bg-white border border-[var(--border)] py-1.5 lg:py-2 px-[14px] rounded-md cursor-text'>
               Advantage<span className='text-[var(--accent)]'>__dev</span>
             </h2>
           </div>
